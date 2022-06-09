@@ -1,0 +1,124 @@
+.lang-switcher {
+  span {
+    cursor: pointer;
+  }
+}
+
+.isMobileMenuVisible {
+  @include max-lg {
+    display: flex !important;
+  }
+}
+
+.hamburger-menu {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px 50px 0px;
+  background-color: #fff;
+  @include lg {
+    display: none;
+  }
+
+  .logo-mobile {
+    padding: 15px;
+    max-width: 90px;
+  }
+
+  .logo {
+    display: block;
+    padding: 15px !important;
+    img {
+      max-width: 60px;
+    }
+  }
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 20;
+  height: 100%;
+  background-color: #fff;
+  display: none;
+
+  @include lg {
+    background-color: #fff;
+    height: initial;
+    display: flex;
+  }
+
+  @include lg {
+    padding-top: 26px;
+    padding-bottom: 26px;
+  }
+
+  .nav--wrapper {
+    @include max-lg {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  nav {
+    justify-content: flex-end;
+    gap: 15px;
+    padding-top: 20px;
+
+    @include lg {
+      gap: 24px;
+      padding-top: 0;
+    }
+
+    @include xl {
+      gap: 86px;
+      padding-top: 0;
+    }
+
+    a {
+      font-size: 18px;
+      text-decoration: none;
+      color: $txt-color;
+      position: relative;
+    }
+  }
+
+  .router-link-active:not(.logo) {
+    @include max-lg {
+      border-bottom: 2px solid $accent;
+      pointer-events: none;
+    }
+    @include lg {
+      &:before {
+        content: '';
+        width: 52px;
+        height: 6px;
+        background-color: $accent;
+        position: absolute;
+        display: block;
+        left: 0;
+        top: -35px;
+        transform: translate(0%, -50%);
+      }
+    }
+  }
+
+  .logo img {
+    width: 130px;
+  }
+
+  .oan-btn {
+    width: 154px;
+    padding: 4px 0px;
+    text-align: center;
+  }
+}

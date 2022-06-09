@@ -1,0 +1,100 @@
+body {
+  font-family: 'Inter', sans-serif;
+  color: $txt-color;
+}
+
+.font-600 {
+  font-weight: 600 !important;
+}
+
+
+.h1 , h1 {
+  font-size: 3.75rem;
+
+  @include max-lg {
+    margin-bottom: 30px;
+    font-size: 39px;
+  }
+}
+
+.h2 , h2 {
+  font-size: 1.75rem;
+}
+
+.h3, h3 {
+   font-size: 1.875rem;
+  @include mobile {
+    font-weight: 600;
+  }
+
+ }
+
+.h4, h4 {
+  font-size: 1.563rem;
+}
+
+.h1, h1 ,
+.h2, h2 ,
+.h3, h3 ,
+.h4, h4 {
+  font-weight: bold;
+}
+
+p {
+  font-size: 0.938rem;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+
+span.underline {
+  position: relative;
+  z-index: 4;
+  &:after {
+    content: '';
+    width: 100%;
+    background-color: $yellow;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+  }
+
+}
+
+h1 {
+  span.underline {
+    &:after {
+      content: '';
+      height: 12px;
+      bottom: 5px;
+      @include lg {
+        bottom: 8px;
+        height: 22px;
+      }
+
+    }
+
+  }
+}
+
+h3 {
+  span.underline {
+    &:after {
+      content: '';
+      height: 7px;
+      bottom: 2px;
+
+      @include lg {
+        bottom: 2px;
+        height: 9px;
+      }
+
+
+    }
+
+  }
+
+}
+

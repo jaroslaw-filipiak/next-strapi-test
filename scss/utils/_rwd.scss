@@ -1,0 +1,63 @@
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
+);
+
+// Small devices (landscape phones, 576px and up)
+
+@mixin mobile {
+  @media (max-width: map-get($grid-breakpoints , sm)) {
+    @content
+  }
+}
+
+@mixin sm {
+  @media (min-width: map-get($grid-breakpoints , sm)) {
+    @content
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@mixin md {
+  @media (min-width: map-get($grid-breakpoints , md)) {
+    @content
+  }
+}
+
+@mixin max-md {
+  @media (max-width: map-get($grid-breakpoints , md)) {
+    @content
+  }
+}
+
+
+// Large devices (desktops, 992px and up)
+@mixin lg {
+  @media (min-width: map-get($grid-breakpoints , lg)) {
+    @content
+  }
+}
+
+@mixin max-lg {
+  @media (max-width: map-get($grid-breakpoints , lg)) {
+    @content
+  }
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@mixin xl {
+  @media (min-width: map-get($grid-breakpoints , xl)) {
+    @content
+  }
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@mixin xxl {
+  @media (min-width: map-get($grid-breakpoints , xxl)) {
+    @content
+  }
+}

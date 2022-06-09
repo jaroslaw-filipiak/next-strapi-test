@@ -1,0 +1,37 @@
+body {
+
+  &:before {
+    content: '';
+    width: 100vw;
+    background-color: $dark;
+    color: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: block;
+    z-index: 999;
+    padding: 4px 60px;
+
+    @include mobile {
+      content: 'xs up to 576px'
+    }
+
+    @include sm {
+      content: 'breakpoint: sm'
+    }
+    @include md {
+      content: 'breakpoint: md'
+    }
+    @include lg {
+      content: 'breakpoint: lg'
+    }
+    @include xl {
+      content: 'breakpoint: xl'
+    }
+    @include xxl {
+      content: 'breakpoint: xxl'
+    }
+
+  }
+
+}
