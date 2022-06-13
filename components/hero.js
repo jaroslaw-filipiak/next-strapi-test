@@ -7,7 +7,7 @@ export default function () {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:1337/api/page-about')
+    fetch('https://ct-be.dev.softgorillas.com/api/page-about')
       .then((res) => res.json())
       .then((data) => {
         setData(data);
