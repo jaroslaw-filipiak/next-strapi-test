@@ -23,8 +23,6 @@ export default function () {
       <div className='container-fluid'>
         <div className='container'>
           {console.log(data)}
-          <h1>{data.data.attributes.Title}</h1>
-          <p>{data.data.attributes.locale}</p>
           <div className='row d-flex flex-column flex-lg-row align-items-center justify-content-between'>
             <div className='col text-center text-lg-start'>
               <div>
