@@ -32,7 +32,6 @@ const aboutUsHero = () => {
 
   console.log(data);
   console.log(data.pageAbout.data.attributes.Slider.slider_repeater);
-  console.log(data.pageAbout.data.attributes.Title);
 
   return (
     <section
@@ -41,7 +40,7 @@ const aboutUsHero = () => {
         backgroundImage: `url('/img/about-us-hero-bg.png')`,
         backgroundRepeat: `no-repeat`,
       }}
-      className='about-us-hero border'
+      className='about-us-hero'
     >
       <div className='container-fluid'>
         <div className='container'>
