@@ -1,5 +1,4 @@
 import { useQuery, gql } from '@apollo/client';
-import Image from 'next/dist/client/image';
 
 const GET_WHY_US_CONTENT = gql`
   query getWhyUsContent {
@@ -27,9 +26,6 @@ const whyUs = () => {
 
   if (loading) return <p>loading..</p>;
   if (error) return <p>error...</p>;
-
-  console.log(data);
-  console.log(data.pageHomepage.data.attributes.Table.first_column_title);
 
   return (
     <section className='why-us' data-aos='fade-up'>
@@ -73,13 +69,14 @@ const whyUs = () => {
                     (item, index) => (
                       <>
                         <div
-                          key={index}
+                          key='${index}'
                           className='col col-4 border d-flex align-items-center justify-content-start'
                         >
                           {item.row_title}
                         </div>
 
                         <div
+                          key='{index + 854}'
                           className='col col-4 border d-flex align-items-center justify-content-center why-us-table--stars'
                           style={{ position: 'relative' }}
                         >
@@ -100,6 +97,7 @@ const whyUs = () => {
                         </div>
 
                         <div
+                          key='{index + 987}'
                           className='col col-4 border d-flex align-items-center justify-content-center why-us-table--stars'
                           style={{ position: 'relative' }}
                         >

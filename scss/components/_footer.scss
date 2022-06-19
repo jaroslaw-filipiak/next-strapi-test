@@ -1,0 +1,35 @@
+.footer {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  @include lg {
+    padding-bottom: 60px;
+  }
+  a {
+    text-decoration: none !important;
+    color: #354185;
+    font-size: 14px;
+    &:hover {
+      img {
+        opacity: 0.9;
+      }
+    }
+  }
+  &--menu {
+    @include max-lg {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+  .social-link--linkedin {
+    position: relative;
+    top: 20px;
+    left: -8px;
+  }
+  .footer-col {
+    &-1 {
+      img {
+        transform: scale(0.8);
+      }
+    }
+  }
+}
