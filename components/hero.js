@@ -22,7 +22,6 @@ export default function () {
     <section className='home-hero'>
       <div className='container-fluid'>
         <div className='container'>
-          {/* {console.log(data)} */}
           <div className='row d-flex flex-column flex-lg-row align-items-center justify-content-between'>
             <div className='col text-center text-lg-start'>
               <div>

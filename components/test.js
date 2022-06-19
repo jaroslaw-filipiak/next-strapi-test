@@ -22,8 +22,7 @@ export default function Test() {
   return (
     <div className='container '>
       <div className='row'>
-        <div className='col-4 border'>
-          {console.log(data)}
+        <div className='col-4'>
           <h2>test component.. </h2>
           <h3>{data.forms.data[0].attributes.name}</h3>
         </div>

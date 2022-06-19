@@ -32,7 +32,11 @@ const testimonials = () => {
 
           <div className='row'>
             {data.testimonials.data.map((item, index) => (
-              <div className='testimonial mx-auto' data-aos='fade-up'>
+              <div
+                key={index}
+                className='testimonial mx-auto'
+                data-aos='fade-up'
+              >
                 <div className='testimonial--quote-1 d-none d-xl-block'>
                   <img src='/img/quote-1.png' alt='' />
                 </div>

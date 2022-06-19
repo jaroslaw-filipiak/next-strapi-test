@@ -1,4 +1,5 @@
 import { useQuery, gql } from '@apollo/client';
+import React from 'react';
 
 const GET_WHY_US_CONTENT = gql`
   query getWhyUsContent {
@@ -67,55 +68,54 @@ const whyUs = () => {
                 <div className='why-us-table--row row d-flex justify-content-center'>
                   {data.pageHomepage.data.attributes.Table.table_row_repeater_item.map(
                     (item, index) => (
-                      <>
-                        <div
-                          key='${index}'
-                          className='col col-4 border d-flex align-items-center justify-content-start'
-                        >
-                          {item.row_title}
-                        </div>
-
-                        <div
-                          key='{index + 854}'
-                          className='col col-4 border d-flex align-items-center justify-content-center why-us-table--stars'
-                          style={{ position: 'relative' }}
-                        >
-                          <div className='stars--top'>
-                            {Array.from(
-                              { length: item.programmatic_model_stars },
-                              (_, i) => (
-                                <img src='/img/icons/star-filled.svg' />
-                              )
-                            )}
+                      <React.Fragment
+                        key={item.row_title ? item.row_title : index}
+                      >
+                        <>
+                          <div className='col col-4 border d-flex align-items-center justify-content-start'>
+                            {item.row_title}
                           </div>
 
-                          <div className='stars--bottom'>
-                            {Array.from({ length: 3 }, (_, i) => (
-                              <img src='/img/icons/star-outline.svg' />
-                            ))}
-                          </div>
-                        </div>
+                          <div
+                            className='col col-4 border d-flex align-items-center justify-content-center why-us-table--stars'
+                            style={{ position: 'relative' }}
+                          >
+                            <div className='stars--top'>
+                              {Array.from(
+                                { length: item.programmatic_model_stars },
+                                (_, i) => (
+                                  <img src='/img/icons/star-filled.svg' />
+                                )
+                              )}
+                            </div>
 
-                        <div
-                          key='{index + 987}'
-                          className='col col-4 border d-flex align-items-center justify-content-center why-us-table--stars'
-                          style={{ position: 'relative' }}
-                        >
-                          <div className='stars--top'>
-                            {Array.from(
-                              { length: item.classic_model_stars },
-                              (_, i) => (
-                                <img src='/img/icons/star-filled.svg' />
-                              )
-                            )}
+                            <div className='stars--bottom'>
+                              {Array.from({ length: 3 }, (_, i) => (
+                                <img src='/img/icons/star-outline.svg' />
+                              ))}
+                            </div>
                           </div>
-                          <div className='stars--bottom'>
-                            {Array.from({ length: 3 }, (_, i) => (
-                              <img src='/img/icons/star-outline.svg' />
-                            ))}
+
+                          <div
+                            className='col col-4 border d-flex align-items-center justify-content-center why-us-table--stars'
+                            style={{ position: 'relative' }}
+                          >
+                            <div className='stars--top'>
+                              {Array.from(
+                                { length: item.classic_model_stars },
+                                (_, i) => (
+                                  <img src='/img/icons/star-filled.svg' />
+                                )
+                              )}
+                            </div>
+                            <div className='stars--bottom'>
+                              {Array.from({ length: 3 }, (_, i) => (
+                                <img src='/img/icons/star-outline.svg' />
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      </>
+                        </>
+                      </React.Fragment>
                     )
                   )}
                 </div>
