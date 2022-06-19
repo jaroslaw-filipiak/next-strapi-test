@@ -1,9 +1,11 @@
 import Layout from '../components/layout';
+import AboutUsHero from '../components/aboutUsHero';
 
 const about = () => {
   return (
     <Layout>
-      <p>about.</p>
+      <div className='empty-space'></div>
+      <AboutUsHero></AboutUsHero>
     </Layout>
   );
 };
