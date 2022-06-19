@@ -46,7 +46,7 @@ export default function () {
             </div>
 
             <div className='flex-column align-items-center d-none d-lg-flex overflow-hidden'>
-              {/* <img
+              <img
                 className='home-hero--indicator'
                 src='/img/section-indicator.png'
                 alt=''
@@ -55,7 +55,7 @@ export default function () {
                 className='home-hero--indicator-icon'
                 src='/img/icons/arrow-down.svg'
                 alt=''
-              /> */}
+              />
             </div>
           </div>
         </div>

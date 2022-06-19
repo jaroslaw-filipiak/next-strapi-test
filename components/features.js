@@ -36,8 +36,6 @@ export default function Features() {
 
   return (
     <section className='home-features'>
-      {console.log(data)}
-      {console.log(data.pageHomepage.data.attributes.Features.items)}
       <div className='container-fluid'>
         <div className='container'>
           <div className='row'>
@@ -63,23 +61,29 @@ export default function Features() {
           </div>
 
           <div className='row items-row items-row-1'>
-            {data.pageHomepage.data.attributes.Features.items.map((item) => (
-              <div className='col-6 home-feauters--item'>
-                <div className='item__icon'>
-                  <img
-                    src={item.feature_item_icon.data.attributes.url}
-                    alt=''
-                  />
+            {data.pageHomepage.data.attributes.Features.items.map(
+              (item, index) => (
+                <div
+                  className={`col-6 home-feauters--item home-feauters--item-${
+                    index + 1
+                  }`}
+                >
+                  <div className='item__icon'>
+                    <img
+                      src={item.feature_item_icon.data.attributes.url}
+                      alt=''
+                    />
+                  </div>
+                  <div className='item__content'>
+                    <h4>{item.feature_item_title}</h4>
+                    <p>{item.feature_item_subtitle}</p>
+                    <a className='oan-btn' href='#'>
+                      Więcej
+                    </a>
+                  </div>
                 </div>
-                <div className='item__content'>
-                  <h4>{item.feature_item_title}</h4>
-                  <p>{item.feature_item_subtitle}</p>
-                  <a className='oan-btn' href='#'>
-                    Więcej
-                  </a>
-                </div>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </div>
       </div>
