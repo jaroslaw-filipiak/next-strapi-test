@@ -8,7 +8,6 @@ export default function Home() {
     <Layout>
       <div className='empty-space'></div>
       <Hero> </Hero>
-      <Test></Test>
       <Features></Features>
     </Layout>
   );
