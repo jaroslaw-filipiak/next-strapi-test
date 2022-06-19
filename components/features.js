@@ -64,6 +64,7 @@ export default function Features() {
             {data.pageHomepage.data.attributes.Features.items.map(
               (item, index) => (
                 <div
+                  key={item.feature_item_title}
                   className={`col-6 home-feauters--item home-feauters--item-${
                     index + 1
                   }`}
