@@ -21,6 +21,11 @@
   justify-content: space-between;
   padding: 0px 30px 50px 0px;
   background-color: #fff;
+
+  @include mobile {
+    padding: 0px 30px 50px 30px;
+  }
+
   @include lg {
     display: none;
   }

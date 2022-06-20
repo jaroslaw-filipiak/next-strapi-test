@@ -5,6 +5,14 @@ import { useRouter } from 'next/router';
 export default function () {
   const router = useRouter();
 
+  const toggleMobileMenu = () => {
+    const button = document.querySelector('button.hamburger--slider');
+    button.classList.toggle('is-active');
+
+    const mobileMenu = document.querySelector('.mobile-menu--wrapper');
+    mobileMenu.classList.toggle('isMobileMenuVisible');
+  };
+
   return (
     <div>
       <div className='hamburger-menu'>
@@ -17,13 +25,17 @@ export default function () {
             alt='oan logo'
           />
         </Link>
-        <button className='hamburger hamburger--slider' type='button'>
+        <button
+          onClick={toggleMobileMenu}
+          className='hamburger hamburger--slider'
+          type='button'
+        >
           <span className='hamburger-box'>
             <span className='hamburger-inner'></span>
           </span>
         </button>
       </div>
-      <section className='header'>
+      <section className='header mobile-menu--wrapper '>
         <div className='container-fluid'>
           <div className='container'>
             <div className='row d-flex flex-column flex-lg-row align-items-center'>
