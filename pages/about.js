@@ -2,14 +2,90 @@ import Layout from '../components/layout';
 import AboutUsHero from '../components/aboutUsHero';
 import CompanyTimeline from '../components/companyTimeline';
 import Counters from '../components/counters';
+import CTA from '../components/cta';
+import { useQuery, gql } from '@apollo/client';
+import Image from 'next/dist/client/image';
+import Link from 'next/dist/client/link';
+
+const GET_ABOUT_PAGE_CTA_DATA = gql`
+  query getCTA {
+    pageAbout(locale: "pl") {
+      data {
+        attributes {
+          CTA {
+            cta_content
+            cta_btn_txt
+            has_icon
+            cta_icon {
+              data {
+                attributes {
+                  url
+                  width
+                  height
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 const about = () => {
+  const { data, error, loading } = useQuery(GET_ABOUT_PAGE_CTA_DATA);
+
+  if (loading) return <p>loading..</p>;
+  if (error) return <p>error...</p>;
+
   return (
     <Layout>
       <div className='empty-space'></div>
       <AboutUsHero></AboutUsHero>
       <CompanyTimeline></CompanyTimeline>
       <Counters></Counters>
+      <CTA>
+        {{
+          left: (
+            <div
+              className={`text-center ${
+                data.pageAbout.data.attributes.CTA.has_icon
+                  ? 'col-6 d-flex flex-column align-items-center justify-content-center'
+                  : 'col-12 d-flex flex-column align-items-center justify-content-center'
+              }`}
+            >
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: data.pageAbout.data.attributes.CTA.cta_content,
+                }}
+              ></span>
+              <button className='oan-btn'>
+                <Link href='/contact'>
+                  {data.pageAbout.data.attributes.CTA.cta_btn_txt}
+                </Link>
+              </button>
+            </div>
+          ),
+          right: (
+            <div
+              className={
+                data.pageAbout.data.attributes.CTA.has_icon
+                  ? 'col-6 d-flex align-items-center justify-content-center'
+                  : 'd-none'
+              }
+            >
+              <img
+                src={
+                  data.pageAbout.data.attributes.CTA.cta_icon.data
+                    ? data.pageAbout.data.attributes.CTA.cta_icon.data
+                        .attributes.url
+                    : ''
+                }
+              />
+            </div>
+          ),
+        }}
+      </CTA>
     </Layout>
   );
 };
