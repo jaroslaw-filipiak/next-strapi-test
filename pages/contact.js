@@ -1,9 +1,11 @@
 import Layout from '../components/layout';
+import ContactForm from '../components/contactForm';
 
 export default () => {
   return (
     <Layout>
-      <div>Contact</div>
+      <div className='empty-space'></div>
+      <ContactForm></ContactForm>
     </Layout>
   );
 };
