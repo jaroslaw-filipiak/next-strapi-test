@@ -1,0 +1,48 @@
+.counters {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  &--items-wrapper {
+    @include lg {
+      gap: 150px;
+    }
+  }
+  h3 {
+    margin-bottom: 70px;
+  }
+  .counter-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 300px;
+    text-align: center;
+    border: 1px solid #fff;
+    @include max-lg {
+      min-width: 80%;
+      margin-bottom: 60px;
+    }
+    .counter--value {
+      font-weight: bold;
+      font-size: 60px;
+      color: #dddddd;
+      span {
+        display: inline-block;
+        min-width: 132px;
+      }
+    }
+    p {
+      margin-top: 20px;
+      position: relative;
+      &:after {
+        content: '';
+        width: 21px;
+        height: 6px;
+        background-color: $accent;
+        position: absolute;
+        left: 50%;
+        bottom: -30px;
+        transform: translate(-50%, 0%);
+      }
+    }
+  }
+}

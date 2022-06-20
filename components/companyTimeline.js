@@ -40,8 +40,6 @@ const companyTimeline = () => {
   if (loading) return <p>loading..</p>;
   if (error) return <p>error...</p>;
 
-  console.log(data);
-
   return (
     <section className='company-timeline' id='company-timeline'>
       <div className='container-fluid'>
