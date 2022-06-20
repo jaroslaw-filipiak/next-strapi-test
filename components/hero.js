@@ -1,23 +1,7 @@
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import NewsletterForm from './newsletterForm';
 
 export default function () {
-  const [data, setData] = useState(null);
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch('https://ct-be.dev.softgorillas.com/api/page-about')
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setLoading(false);
-      });
-  }, []);
-
-  if (isLoading) return <p>Loading...</p>;
-  if (!data) return <p>No profile data</p>;
-
   return (
     <section className='home-hero'>
       <div className='container-fluid'>
@@ -36,7 +20,7 @@ export default function () {
               </h2>
 
               <div className='d-flex flex-column flex-lg-row'>
-                {/* <NewsletterForm /> */}
+                <NewsletterForm></NewsletterForm>
               </div>
             </div>
 
