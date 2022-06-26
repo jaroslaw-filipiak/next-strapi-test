@@ -84,6 +84,14 @@ input[disabled] {
   }
 }
 
+a.is-active {
+  color: $accent;
+}
+
+a.lang-active {
+  color: $accent !important;
+}
+
 @import './components/header';
 @import './components/hero';
 @import './components/features';

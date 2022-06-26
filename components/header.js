@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/dist/client/image';
 import { useRouter } from 'next/router';
+import LangSwitcher from './langSwitcher';
 
 export default function () {
   const router = useRouter();
@@ -16,7 +17,7 @@ export default function () {
   return (
     <div>
       <div className='hamburger-menu'>
-        <Link className='logo d-lg-none' href='/'>
+        <a className='logo d-lg-none' href='/index'>
           <Image
             width={60}
             height={23.86}
@@ -24,7 +25,7 @@ export default function () {
             src='/img/logo.png'
             alt='oan logo'
           />
-        </Link>
+        </a>
         <button
           onClick={toggleMobileMenu}
           className='hamburger hamburger--slider'
@@ -81,11 +82,10 @@ export default function () {
                           : ''
                       }
                     >
-                      {' '}
                       Kontakt
                     </a>
                   </Link>
-                  {/* <LangSwitcher /> */}
+                  <LangSwitcher />
 
                   <Link href='/contact'>
                     <a

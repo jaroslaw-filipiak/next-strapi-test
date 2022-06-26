@@ -1,9 +1,40 @@
 const newsletterForm = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const data = {
+      data: {
+        email: event.target.email.value,
+      },
+    };
+
+    const JSONdata = JSON.stringify(data);
+
+    console.log(JSONdata);
+
+    const endpoint = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/newsletters`;
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSONdata,
+    };
+
+    const response = await fetch(endpoint, options);
+    const result = await response.json();
+
+    console.log(result.data);
+
+    // console.log(event);
+    // console.log(event.target.email.value);
+  };
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div className='d-flex flex-column flex-md-row flex-md-nowrap align-items-center justify-content-center justify-content-lg-start'>
         <div className='position-relative'>
-          <label for='email'>
+          <label htmlFor='email'>
             <input
               // @focus="lawInfoVisible = true"
               // @blur="lawInfoVisible = false"
@@ -12,6 +43,7 @@ const newsletterForm = () => {
               type='text'
               name='email'
               id='email'
+              required
             />
           </label>
 
@@ -21,7 +53,7 @@ const newsletterForm = () => {
         </div>
 
         <div>
-          <label for='submit-btn'>
+          <label htmlFor='submit-btn'>
             <input
               // @click="sendData"
               // :disabled="v$.form.data.$invalid"
