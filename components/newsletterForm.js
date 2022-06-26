@@ -1,4 +1,10 @@
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+
 const newsletterForm = () => {
+  const [isLawInfoVisible, setLawInfoVisibility] = useState(false);
+  const [isEmailSended, setSubscription] = useState(false);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -10,7 +16,7 @@ const newsletterForm = () => {
 
     const JSONdata = JSON.stringify(data);
 
-    console.log(JSONdata);
+    // console.log(JSONdata);
 
     const endpoint = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/newsletters`;
 
@@ -26,24 +32,53 @@ const newsletterForm = () => {
     const result = await response.json();
 
     console.log(result.data);
+    console.log(response.status);
 
-    // console.log(event);
-    // console.log(event.target.email.value);
+    if (response.status === 200) {
+      setSubscription(true);
+      clearInputData();
+    } else {
+      setSubscription(false);
+    }
   };
+
+  const handleFocus = () => {
+    setLawInfoVisibility(true);
+    const messageBox = document.querySelector('.newsletter-send__message-box');
+    // messageBox.classList.remove('hidden');
+    // messageBox.classList.add('d-none');
+  };
+
+  const handleBlur = () => {
+    setLawInfoVisibility(false);
+  };
+
+  const clearInputData = () => {
+    const input = document.querySelector('input[type="email"]');
+
+    input.value = '';
+
+    setTimeout(() => {
+      const messageBox = document.querySelector(
+        '.newsletter-send__message-box'
+      );
+      messageBox.classList.add('d-none');
+    }, 3000);
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div className='d-flex flex-column flex-md-row flex-md-nowrap align-items-center justify-content-center justify-content-lg-start'>
         <div className='position-relative'>
           <label htmlFor='email'>
             <input
-              // @focus="lawInfoVisible = true"
-              // @blur="lawInfoVisible = false"
-              // v-model="v$.form.data.email.$model"
               className='home-hero--input'
-              type='text'
+              type='email'
               name='email'
               id='email'
               required
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
           </label>
 
@@ -55,21 +90,40 @@ const newsletterForm = () => {
         <div>
           <label htmlFor='submit-btn'>
             <input
-              // @click="sendData"
-              // :disabled="v$.form.data.$invalid"
               className='oan-btn'
               name='submit-btn'
               id='submit-btn'
               type='submit'
+
               // :value="sendBtn"
             />
           </label>
         </div>
       </div>
 
-      {/* <div className="{ 'form--law-info__visible': lawInfoVisible }" className="form--law-info"> */}
-      {/* <div id="law-info" v-html="pageHomepage.data.attributes.Hero.newsletter_law_info"></div> */}
-      {/* </div> */}
+      <div
+        className={`${
+          isEmailSended
+            ? 'newsletter-send__message-box'
+            : 'newsletter-send__message-box d-none'
+        }`}
+      >
+        <p>Twoja wiadomosć zostala wyslana</p>
+      </div>
+
+      <div
+        className={`form--law-info ${
+          isLawInfoVisible ? 'form--law-info__visible' : ''
+        }`}
+      >
+        Wysyłając formularz, wyrażana jest zgoda na przetwarzanie danych
+        osobowych przez Online Advertising Network Sp. z o.o. w celach
+        promocyjnych i marketingowych usług własnych oraz informacji handlowych
+        o spółce drogą elektroniczną. W każdej chwili będziecie mogli Państwo
+        wycofać zgodę. Przetwarzamy Państwa dane osobowe, po Państwa akceptacji,
+        aby zapewnić Państwu lepszy kontakt z nami. Naszą zaktualizowaną
+        politykę prywatności znajdą Państwo <Link href='/gdpr'>tutaj</Link>
+      </div>
     </form>
   );
 };
