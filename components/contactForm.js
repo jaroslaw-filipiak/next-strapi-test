@@ -1,4 +1,42 @@
 const contactForm = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const data = {
+      data: {
+        name: event.target.name.value,
+        email: event.target.email.value,
+        message: event.target.message.value,
+      },
+    };
+
+    const JSONdata = JSON.stringify(data);
+
+    console.log(JSONdata);
+
+    const endpoint = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/forms`;
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSONdata,
+    };
+
+    const response = await fetch(endpoint, options);
+    const result = await response.json();
+
+    console.log(result.data);
+    console.log(response.status);
+
+    // if (response.status === 200) {
+    //   setSubscription(true);
+    //   clearInputData();
+    // } else {
+    //   setSubscription(false);
+    // }
+  };
   return (
     <section className='contact-form' data-aos='fade-up'>
       <div className='container-fluid'>
@@ -25,10 +63,9 @@ const contactForm = () => {
               className='col col-lg-7 d-flex justify-content-end'
               data-aos='fade-up'
             >
-              <form data-aos='fade-up'>
-                <label for='name'>
+              <form onSubmit={handleSubmit} data-aos='fade-up'>
+                <label htmlFor='name'>
                   <input
-                    //   v-model="v$.form.data.name.$model"
                     type='text'
                     id='name'
                     name='name'
@@ -36,9 +73,8 @@ const contactForm = () => {
                   />
                 </label>
 
-                <label for='email'>
+                <label htmlFor='email'>
                   <input
-                    //   v-model="v$.form.data.email.$model"
                     type='email'
                     id='email'
                     name='email'
@@ -54,9 +90,8 @@ const contactForm = () => {
                   </div>
                 </label>
 
-                <label for='message'>
+                <label htmlFor='message'>
                   <textarea
-                    //   v-model="v$.form.data.message.$model"
                     placeholder={`W czym możemy pomóc ?`}
                     name='message'
                     id='message'
@@ -66,13 +101,7 @@ const contactForm = () => {
                 </label>
 
                 <div className='d-flex align-items-center justify-content-end'>
-                  <input
-                    //   @click="sendData"
-                    //   :disabled="v$.form.data.$invalid"
-                    className='oan-btn'
-                    type='submit'
-                    value='Wyślij'
-                  />
+                  <input className='oan-btn' type='submit' value='Wyślij' />
                 </div>
               </form>
             </div>
