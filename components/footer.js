@@ -19,11 +19,9 @@ export default () => {
                 <Link href='/offer'> Oferta / </Link>
                 <Link href='/about'> O nas / </Link>
                 <Link href='/contact'> Kontakt /</Link>
-                <Link href='/polityka-prywatnosci'>
-                  &nbsp;Polityka prywatności /
-                </Link>
+                <Link href='/privacy-policy'>&nbsp;Polityka prywatności /</Link>
                 <Link href='/gdpr'> RODO /</Link>
-                <Link href='/advertisingPrivacyPolicy'>
+                <Link href='/advertising-privacy-policy'>
                   &nbsp;Polityka prywatności usług reklamowych
                 </Link>
               </div>
