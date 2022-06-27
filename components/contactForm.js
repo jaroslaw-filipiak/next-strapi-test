@@ -70,6 +70,7 @@ const contactForm = () => {
                     id='name'
                     name='name'
                     placeholder={'Imię i nazwisko'}
+                    required
                   />
                 </label>
 
@@ -79,6 +80,7 @@ const contactForm = () => {
                     id='email'
                     name='email'
                     placeholder='E-mail'
+                    required
                   />
 
                   <div
@@ -97,6 +99,7 @@ const contactForm = () => {
                     id='message'
                     cols='30'
                     rows='10'
+                    required
                   ></textarea>
                 </label>
 
