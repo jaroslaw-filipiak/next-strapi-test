@@ -104,6 +104,18 @@ a.lang-active {
   opacity: 100% !important;
 }
 
+.mh-0 {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in;
+}
+
+.mh-500 {
+  max-height: auto;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in;
+}
+
 @import './components/header';
 @import './components/hero';
 @import './components/features';

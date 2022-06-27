@@ -27,7 +27,9 @@ const whyUs = () => {
   const { data, error, loading } = useQuery(GET_WHY_US_CONTENT);
 
   if (loading) return <p>loading..</p>;
-  if (error) return <p>error...</p>;
+  if (error) {
+    console.log(error);
+  }
 
   return (
     <section className='why-us' data-aos='fade-up'>
@@ -68,7 +70,7 @@ const whyUs = () => {
               <div className='why-us-table--body col-12 col-lg-8'>
                 <div className='why-us-table--row row d-flex justify-content-center'>
                   {data.pageHomepage.data.attributes.Table.table_row_repeater_item.map(
-                    (item, index) => (
+                    (item) => (
                       <React.Fragment key={item.key}>
                         {console.log(item)}
                         <div className='col col-4 border d-flex align-items-center justify-content-start'>

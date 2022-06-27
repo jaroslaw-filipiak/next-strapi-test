@@ -1,5 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 import { isTypeSystemDefinitionNode } from 'graphql';
+import React, { useState } from 'react';
 
 const GET_FEATURES = gql`
   query getFeatures {
@@ -30,9 +31,35 @@ const GET_FEATURES = gql`
 
 export default function Features() {
   const { data, error, loading } = useQuery(GET_FEATURES);
+  const [btnContent, setBtnContent] = useState('Więcej');
 
   if (loading) return <p>loading..</p>;
   if (error) return <p>error...</p>;
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log(e.target);
+
+    const dataItem = e.target.dataset.item;
+    const excerpt = document.querySelector(`.${dataItem}--excerpt`);
+    const allExcerpts = document.querySelectorAll(`.item__excerpt`);
+    const allExcerptsArr = [...allExcerpts];
+    const btn = e.target;
+
+    btn.classList.toggle('is-reveal');
+
+    if (btn.classList.contains('is-reveal')) {
+      btn.innerHTML = 'Mniej';
+    } else {
+      btn.innerHTML = 'Więcej';
+    }
+    // allExcerptsArr.map((item) => {
+    //   item.classList.add('h-0');
+    // });
+
+    excerpt.classList.toggle('mh-0');
+    excerpt.classList.toggle('mh-500');
+  };
 
   return (
     <section className='home-features'>
@@ -78,8 +105,18 @@ export default function Features() {
                   <div className='item__content'>
                     <h4>{item.feature_item_title}</h4>
                     <p>{item.feature_item_subtitle}</p>
-                    <a className='oan-btn' href='#'>
-                      Więcej
+                    <div
+                      className={`item__excerpt mh-0 item-${index}--excerpt`}
+                    >
+                      {item.feature_item_excerpt}
+                    </div>
+                    <a
+                      className={`oan-btn`}
+                      data-item={`item-${index}`}
+                      onClick={handleClick}
+                      href='#'
+                    >
+                      {btnContent}
                     </a>
                   </div>
                 </div>
