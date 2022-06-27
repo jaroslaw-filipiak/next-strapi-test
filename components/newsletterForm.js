@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const newsletterForm = () => {
   const [isLawInfoVisible, setLawInfoVisibility] = useState(false);
@@ -16,8 +18,6 @@ const newsletterForm = () => {
 
     const JSONdata = JSON.stringify(data);
 
-    // console.log(JSONdata);
-
     const endpoint = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/newsletters`;
 
     const options = {
@@ -29,24 +29,36 @@ const newsletterForm = () => {
     };
 
     const response = await fetch(endpoint, options);
-    const result = await response.json();
-
-    console.log(result.data);
-    console.log(response.status);
 
     if (response.status === 200) {
+      toast.success('Dziękujemy za zapis!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+
       setSubscription(true);
       clearInputData();
     } else {
+      toast.warning('Upsss. spróbuj ponownie za jakiś czas..', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       setSubscription(false);
     }
   };
 
   const handleFocus = () => {
     setLawInfoVisibility(true);
-    const messageBox = document.querySelector('.newsletter-send__message-box');
-    // messageBox.classList.remove('hidden');
-    // messageBox.classList.add('d-none');
   };
 
   const handleBlur = () => {
@@ -55,15 +67,7 @@ const newsletterForm = () => {
 
   const clearInputData = () => {
     const input = document.querySelector('input[type="email"]');
-
     input.value = '';
-
-    setTimeout(() => {
-      const messageBox = document.querySelector(
-        '.newsletter-send__message-box'
-      );
-      messageBox.classList.add('d-none');
-    }, 3000);
   };
 
   return (
@@ -99,16 +103,6 @@ const newsletterForm = () => {
             />
           </label>
         </div>
-      </div>
-
-      <div
-        className={`${
-          isEmailSended
-            ? 'newsletter-send__message-box'
-            : 'newsletter-send__message-box d-none'
-        }`}
-      >
-        <p>Twoja wiadomosć zostala wyslana</p>
       </div>
 
       <div
