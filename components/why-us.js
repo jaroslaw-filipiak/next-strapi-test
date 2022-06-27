@@ -28,7 +28,6 @@ const whyUs = () => {
 
   if (loading) return <p>loading..</p>;
   if (error) {
-    console.log(error);
   }
 
   return (
@@ -72,7 +71,6 @@ const whyUs = () => {
                   {data.pageHomepage.data.attributes.Table.table_row_repeater_item.map(
                     (item) => (
                       <React.Fragment key={item.key}>
-                        {console.log(item)}
                         <div className='col col-4 border d-flex align-items-center justify-content-start'>
                           {item.row_title}
                         </div>
