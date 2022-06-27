@@ -1,5 +1,8 @@
 import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
+import React from 'react';
+import CountUp from 'react-countup';
+import VisibilitySensor from 'react-visibility-sensor';
 
 const GET_COUNTERS_DATA = gql`
   query getCounters {
@@ -66,7 +69,16 @@ const counters = () => {
                         alt=''
                       />
                       <div className='counter--value'>
-                        <span>{item.count}</span>
+                        <VisibilitySensor
+                          partialVisibility
+                          offset={{ bottom: 200 }}
+                        >
+                          {({ isVisible }) => (
+                            <span style={{ height: 100 }}>
+                              {isVisible ? <CountUp end={item.count} /> : null}
+                            </span>
+                          )}
+                        </VisibilitySensor>
                       </div>
                     </div>
                     <p>{item.counter_txt}</p>
