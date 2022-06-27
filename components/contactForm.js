@@ -1,3 +1,8 @@
+import React from 'react';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const contactForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -9,6 +14,10 @@ const contactForm = () => {
         message: event.target.message.value,
       },
     };
+
+    const name = document.querySelector('#name');
+    const email = document.querySelector('#email');
+    const message = document.querySelector('#message');
 
     const JSONdata = JSON.stringify(data);
 
@@ -27,16 +36,35 @@ const contactForm = () => {
     const response = await fetch(endpoint, options);
     const result = await response.json();
 
-    console.log(result.data);
-    console.log(response.status);
+    if (response.status === 200) {
+      toast.success('Wiadomość została wysłana!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
 
-    // if (response.status === 200) {
-    //   setSubscription(true);
-    //   clearInputData();
-    // } else {
-    //   setSubscription(false);
-    // }
+      name.value = '';
+      email.value = '';
+      message.value = '';
+
+      console.log(name);
+    } else {
+      toast.warning('Upsss. spróbuj ponownie za jakiś czas..', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
+
   return (
     <section className='contact-form' data-aos='fade-up'>
       <div className='container-fluid'>
