@@ -145,6 +145,7 @@ export default () => {
                 }`}
               >
                 <span
+                  className='gdpr--cta-wrapper'
                   dangerouslySetInnerHTML={{
                     __html: data.pageRodo.data.attributes.CTA.cta_content,
                   }}
