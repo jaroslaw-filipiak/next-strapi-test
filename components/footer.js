@@ -20,21 +20,26 @@ export default () => {
               </div>
 
               <div className='footer--menu pt-3 pt-lg-0 text-center text-lg-start p-0 footer-col footer-col-2'>
-                <a href='/offer'>{lang === 'pl' ? 'Oferta /' : 'Offer /'} </a>
-                <a href='/about'>{lang === 'pl' ? 'O nas /' : 'About us /'} </a>
-                <a href='/contact'>{lang === 'pl' ? 'Kontakt' : 'Contact'} /</a>
-                <a href='/privacy-policy'>
+                <Link href='/offer'>
+                  {lang === 'pl' ? 'Oferta /' : 'Offer /'}
+                </Link>
+                <Link href='/about'>
+                  {lang === 'pl' ? 'O nas /' : 'About us /'}
+                </Link>
+                <Link href='/contact'>
+                  {lang === 'pl' ? 'Kontakt' : 'Contact /'}
+                </Link>
+                <Link href='/privacy-policy'>
                   {lang === 'pl'
                     ? ' Polityka prywatności '
                     : ' Privacy policy '}
-                  /
-                </a>
-                <a href='/gdpr'> {lang === 'pl' ? 'RODO /' : 'GDPR /'}</a>
-                <a href='/advertising-privacy-policy'>
+                </Link>
+                <Link href='/gdpr'>{lang === 'pl' ? 'RODO /' : 'GDPR /'}</Link>
+                <Link href='/advertising-privacy-policy'>
                   {lang === 'pl'
                     ? 'Polityka prywtności usług reklamowych /'
                     : 'Advertisment privacy policy  /'}
-                </a>
+                </Link>
               </div>
 
               <div className='d-flex justify-content-center pt-3 footer-col footer-col-3 ps-1 pe-1'>

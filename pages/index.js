@@ -11,6 +11,8 @@ import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
 import { useRouter } from 'next/router';
 
+import LocaleSwitcher from '../components/locale-switcher';
+
 export default function Home() {
   const router = useRouter();
   const lang = router.locale.slice(0, 2);
