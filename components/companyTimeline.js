@@ -6,10 +6,15 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Image from 'next/dist/client/image';
+import { useRouter } from 'next/router';
 
-const GET_COMPANY_TIMELINE = gql`
+const companyTimeline = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_COMPANY_TIMELINE = gql`
   query getWhyUsContent {
-    pageAbout(locale: "pl") {
+    pageAbout(locale: "${lang}") {
       data {
         attributes {
           Years {
@@ -34,7 +39,6 @@ const GET_COMPANY_TIMELINE = gql`
   }
 `;
 
-const companyTimeline = () => {
   const { data, error, loading } = useQuery(GET_COMPANY_TIMELINE);
 
   if (loading) return <p></p>;

@@ -1,29 +1,32 @@
 import { useQuery, gql } from '@apollo/client';
 import React from 'react';
+import { useRouter } from 'next/router';
 
-const GET_WHY_US_CONTENT = gql`
-  query getWhyUsContent {
-    pageHomepage(locale: "pl") {
-      data {
-        attributes {
-          Table {
-            first_column_title
-            second_column_title
-            section_title
-            table_row_repeater_item {
-              row_title
-              programmatic_model_stars
-              classic_model_stars
-              key
+const whyUs = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_WHY_US_CONTENT = gql`
+    query getWhyUsContent {
+      pageHomepage(locale: "${lang}") {
+        data {
+          attributes {
+            Table {
+              first_column_title
+              second_column_title
+              section_title
+              table_row_repeater_item {
+                row_title
+                programmatic_model_stars
+                classic_model_stars
+                key
+              }
             }
           }
         }
       }
     }
-  }
-`;
-
-const whyUs = () => {
+  `;
   const { data, error, loading } = useQuery(GET_WHY_US_CONTENT);
 
   if (loading) return <p></p>;
@@ -36,11 +39,11 @@ const whyUs = () => {
         <div className='container'>
           <div className='row'>
             <div className='col text-center' data-aos='fade-up'>
-              <h3
+              {/* <h3
                 dangerouslySetInnerHTML={{
                   __html: data.pageHomepage.data.attributes.Table.section_title,
                 }}
-              ></h3>
+              ></h3> */}
             </div>
           </div>
 
