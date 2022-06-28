@@ -6,22 +6,28 @@ import CTA from '../components/cta';
 import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
 import Link from 'next/dist/client/link';
+import { useRouter } from 'next/router';
 
-const GET_ABOUT_PAGE_CTA_DATA = gql`
-  query getCTA {
-    pageAbout(locale: "pl") {
-      data {
-        attributes {
-          CTA {
-            cta_content
-            cta_btn_txt
-            has_icon
-            cta_icon {
-              data {
-                attributes {
-                  url
-                  width
-                  height
+const about = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_ABOUT_PAGE_CTA_DATA = gql`
+    query getCTA {
+      pageAbout(locale: "${lang}") {
+        data {
+          attributes {
+            CTA {
+              cta_content
+              cta_btn_txt
+              has_icon
+              cta_icon {
+                data {
+                  attributes {
+                    url
+                    width
+                    height
+                  }
                 }
               }
             }
@@ -29,10 +35,7 @@ const GET_ABOUT_PAGE_CTA_DATA = gql`
         }
       }
     }
-  }
-`;
-
-const about = () => {
+  `;
   const { data, error, loading } = useQuery(GET_ABOUT_PAGE_CTA_DATA);
 
   if (loading) return <p></p>;

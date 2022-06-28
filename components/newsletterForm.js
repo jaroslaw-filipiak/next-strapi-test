@@ -25,8 +25,6 @@ const newsletterForm = () => {
 
   const { data, error, loading } = useQuery(GET_LAW_INFO);
 
-  console.log(data);
-
   const [isLawInfoVisible, setLawInfoVisibility] = useState(false);
   const [isEmailSended, setSubscription] = useState(false);
 

@@ -1,6 +1,10 @@
 import Link from 'next/dist/client/link';
+import { useRouter } from 'next/router';
 
 export default () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
   return (
     <footer>
       <div className='container-fluid footer'>
@@ -16,14 +20,21 @@ export default () => {
               </div>
 
               <div className='footer--menu pt-3 pt-lg-0 text-center text-lg-start p-0 footer-col footer-col-2'>
-                <Link href='/offer'> Oferta / </Link>
-                <Link href='/about'> O nas / </Link>
-                <Link href='/contact'> Kontakt /</Link>
-                <Link href='/privacy-policy'>&nbsp;Polityka prywatności /</Link>
-                <Link href='/gdpr'> RODO /</Link>
-                <Link href='/advertising-privacy-policy'>
-                  &nbsp;Polityka prywatności usług reklamowych
-                </Link>
+                <a href='/offer'>{lang === 'pl' ? 'Oferta /' : 'Offer /'} </a>
+                <a href='/about'>{lang === 'pl' ? 'O nas /' : 'About us /'} </a>
+                <a href='/contact'>{lang === 'pl' ? 'Kontakt' : 'Contact'} /</a>
+                <a href='/privacy-policy'>
+                  {lang === 'pl'
+                    ? ' Polityka prywatności '
+                    : ' Privacy policy '}
+                  /
+                </a>
+                <a href='/gdpr'> {lang === 'pl' ? 'RODO /' : 'GDPR /'}</a>
+                <a href='/advertising-privacy-policy'>
+                  {lang === 'pl'
+                    ? 'Polityka prywtności usług reklamowych /'
+                    : 'Advertisment privacy policy  /'}
+                </a>
               </div>
 
               <div className='d-flex justify-content-center pt-3 footer-col footer-col-3 ps-1 pe-1'>

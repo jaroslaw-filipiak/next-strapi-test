@@ -3,10 +3,15 @@ import Image from 'next/dist/client/image';
 import React from 'react';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
+import { useRouter } from 'next/router';
 
-const GET_COUNTERS_DATA = gql`
+const counters = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_COUNTERS_DATA = gql`
   query getCounters {
-    pageAbout(locale: "pl") {
+    pageAbout(locale: "${lang}") {
       data {
         attributes {
           Counters {
@@ -30,8 +35,6 @@ const GET_COUNTERS_DATA = gql`
     }
   }
 `;
-
-const counters = () => {
   const { data, error, loading } = useQuery(GET_COUNTERS_DATA);
 
   if (loading) return <p></p>;

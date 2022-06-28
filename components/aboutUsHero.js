@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
+import { useRouter } from 'next/router';
 
 const HERO_SLIDERS = gql`
   query getWhyUsContent {
@@ -25,12 +26,31 @@ const HERO_SLIDERS = gql`
 `;
 
 const aboutUsHero = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const HERO_SLIDERS = gql`
+  query getWhyUsContent {
+    pageAbout(locale: "${lang}") {
+      data {
+        attributes {
+          Title
+          Slider {
+            slider_repeater {
+              slider_title
+              slider_subtitle
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
   const { data, error, loading } = useQuery(HERO_SLIDERS);
 
   if (loading) return <p></p>;
   if (error) return <p>error...</p>;
-
-  // console.log(data);
 
   return (
     <section

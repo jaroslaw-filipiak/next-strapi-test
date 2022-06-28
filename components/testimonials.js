@@ -1,8 +1,13 @@
 import { useQuery, gql } from '@apollo/client';
+import { useRouter } from 'next/router';
 
-const GET_TESTIMONIALS = gql`
+const testimonials = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_TESTIMONIALS = gql`
   query getFeatures {
-    testimonials(locale: "pl") {
+    testimonials(locale: "${lang}") {
       data {
         attributes {
           testimonial_content
@@ -13,8 +18,6 @@ const GET_TESTIMONIALS = gql`
     }
   }
 `;
-
-const testimonials = () => {
   const { data, error, loading } = useQuery(GET_TESTIMONIALS);
 
   if (loading) return <p></p>;

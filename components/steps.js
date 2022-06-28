@@ -1,31 +1,35 @@
 import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
+import { useRouter } from 'next/router';
 
-const GET_STEPS_CONTENT = gql`
-  query getStepsContent {
-    pageHomepage(locale: "pl") {
-      data {
-        attributes {
-          Icons {
-            section_title
-            icons {
-              icon_img {
-                data {
-                  attributes {
-                    url
+const steps = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_STEPS_CONTENT = gql`
+    query getStepsContent {
+      pageHomepage(locale: "${lang}") {
+        data {
+          attributes {
+            Icons {
+              section_title
+              icons {
+                icon_img {
+                  data {
+                    attributes {
+                      url
+                    }
                   }
                 }
+                icon_txt
               }
-              icon_txt
             }
           }
         }
       }
     }
-  }
-`;
+  `;
 
-const steps = () => {
   const { data, error, loading } = useQuery(GET_STEPS_CONTENT);
 
   if (loading) return <p></p>;
@@ -64,16 +68,6 @@ const steps = () => {
                   </div>
                 )
               )}
-
-              {/* <div
-            v-for="(item, index) in pageHomepage.data.attributes.Icons.icons"
-            :key="index"
-            className="col step"
-            :className="`step-${index + 1}`"
-          >
-            <img :src="item.icon_img.data.attributes.url" alt="" />
-            <p>{{ item.icon_txt }}</p> */}
-              {/* </div> */}
             </div>
           </div>
         </div>

@@ -1,37 +1,43 @@
 import { useQuery, gql } from '@apollo/client';
 import { isTypeSystemDefinitionNode } from 'graphql';
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 
-const GET_FEATURES = gql`
-  query getFeatures {
-    pageHomepage(locale: "pl") {
-      data {
-        attributes {
-          Features {
-            section_title
-            section_subtitle
-            items {
-              feature_item_icon {
-                data {
-                  attributes {
-                    url
+export default function Features() {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_FEATURES = gql`
+    query getFeatures {
+      pageHomepage(locale: "${lang}") {
+        data {
+          attributes {
+            Features {
+              section_title
+              section_subtitle
+              items {
+                feature_item_icon {
+                  data {
+                    attributes {
+                      url
+                    }
                   }
                 }
+                feature_item_title
+                feature_item_subtitle
+                feature_item_excerpt
               }
-              feature_item_title
-              feature_item_subtitle
-              feature_item_excerpt
             }
           }
         }
       }
     }
-  }
-`;
+  `;
 
-export default function Features() {
   const { data, error, loading } = useQuery(GET_FEATURES);
-  const [btnContent, setBtnContent] = useState('Więcej');
+  const [btnContent, setBtnContent] = useState(
+    lang === 'pl' ? 'Więcej' : 'More'
+  );
 
   if (loading) return <p></p>;
   if (error) return <p>error...</p>;
@@ -47,11 +53,20 @@ export default function Features() {
 
     btn.classList.toggle('is-reveal');
 
-    if (btn.classList.contains('is-reveal')) {
-      btn.innerHTML = 'Mniej';
-    } else {
-      btn.innerHTML = 'Więcej';
+    if (lang === 'pl') {
+      if (btn.classList.contains('is-reveal')) {
+        btn.innerHTML = 'Mniej';
+      } else {
+        btn.innerHTML = 'Więcej';
+      }
+    } else if (lang === 'en') {
+      if (btn.classList.contains('is-reveal')) {
+        btn.innerHTML = 'Less';
+      } else {
+        btn.innerHTML = 'More';
+      }
     }
+
     // allExcerptsArr.map((item) => {
     //   item.classList.add('h-0');
     // });
