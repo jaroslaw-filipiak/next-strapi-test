@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/dist/client/image';
-import { useRouter } from 'next/router';
 import LangSwitcher from './langSwitcher';
+import { useRouter } from 'next/router';
 
 export default function () {
   const router = useRouter();
+  const lang = router.locale.slice(0, 2);
 
   const toggleMobileMenu = () => {
     const button = document.querySelector('button.hamburger--slider');
@@ -62,7 +63,7 @@ export default function () {
                         router.pathname == '/' ? 'router-link-active' : ''
                       }
                     >
-                      Oferta
+                      {lang === 'en' ? 'Offer' : 'Oferta'}
                     </a>
                   </Link>
                   <Link href='/about'>
@@ -71,7 +72,7 @@ export default function () {
                         router.pathname == '/about' ? 'router-link-active' : ''
                       }
                     >
-                      O nas
+                      {lang === 'en' ? 'About' : 'O nas'}
                     </a>
                   </Link>
                   <Link href='/contact'>
@@ -82,7 +83,7 @@ export default function () {
                           : ''
                       }
                     >
-                      Kontakt
+                      {lang === 'en' ? 'Contact' : 'Kontakt'}
                     </a>
                   </Link>
                   <LangSwitcher />
@@ -95,7 +96,7 @@ export default function () {
                           : 'oan-btn'
                       }
                     >
-                      Napisz do nas
+                      {lang === 'en' ? 'Write to us' : 'Napisz do nas'}
                     </a>
                   </Link>
                 </nav>

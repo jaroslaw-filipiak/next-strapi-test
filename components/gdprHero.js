@@ -23,7 +23,7 @@ const GET_GDPR_HERO_DATA = gql`
 const gdprHero = () => {
   const { data, error, loading } = useQuery(GET_GDPR_HERO_DATA);
 
-  if (loading) return <p>loading..</p>;
+  if (loading) return <p></p>;
   if (error) return { error };
 
   return (

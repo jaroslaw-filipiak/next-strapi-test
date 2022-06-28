@@ -27,7 +27,7 @@ const HERO_SLIDERS = gql`
 const aboutUsHero = () => {
   const { data, error, loading } = useQuery(HERO_SLIDERS);
 
-  if (loading) return <p>loading..</p>;
+  if (loading) return <p></p>;
   if (error) return <p>error...</p>;
 
   // console.log(data);

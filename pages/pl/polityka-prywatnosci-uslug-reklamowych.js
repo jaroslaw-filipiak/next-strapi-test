@@ -1,9 +1,9 @@
-import Layout from '../components/layout';
+import Layout from '../../components/layout';
 import { useQuery, gql } from '@apollo/client';
 
-const GET_PRIVACY_POLICY_PAGE_DATA = gql`
+const GET_ADVERTISING_PRIVACY_POLICY_PAGE_DATA = gql`
   query getFeatures {
-    pagePrivacyPolicy(locale: "pl") {
+    pagePrivacyPolicyAdvertising(locale: "pl") {
       data {
         attributes {
           page_title
@@ -14,8 +14,10 @@ const GET_PRIVACY_POLICY_PAGE_DATA = gql`
   }
 `;
 
-const privacyPolicy = () => {
-  const { data, error, loading } = useQuery(GET_PRIVACY_POLICY_PAGE_DATA);
+const advertisingPrivacyPolicy = () => {
+  const { data, error, loading } = useQuery(
+    GET_ADVERTISING_PRIVACY_POLICY_PAGE_DATA
+  );
 
   if (loading) return <p></p>;
   if (error) return <p>error...</p>;
@@ -30,7 +32,9 @@ const privacyPolicy = () => {
           <div className='container'>
             <div className='row pb-3'>
               <div className='col'>
-                <h3>{data.pagePrivacyPolicy.data.attributes.page_title}</h3>
+                <h3>
+                  {data.pagePrivacyPolicyAdvertising.data.attributes.page_title}
+                </h3>
               </div>
             </div>
 
@@ -38,7 +42,9 @@ const privacyPolicy = () => {
               <div className='col'>
                 <span
                   dangerouslySetInnerHTML={{
-                    __html: data.pagePrivacyPolicy.data.attributes.page_content,
+                    __html:
+                      data.pagePrivacyPolicyAdvertising.data.attributes
+                        .page_content,
                   }}
                 ></span>
               </div>
@@ -50,4 +56,4 @@ const privacyPolicy = () => {
   );
 };
 
-export default privacyPolicy;
+export default advertisingPrivacyPolicy;

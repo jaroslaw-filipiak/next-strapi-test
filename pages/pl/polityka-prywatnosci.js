@@ -1,4 +1,4 @@
-import Layout from '../components/layout';
+import Layout from '../../components/layout';
 import { useQuery, gql } from '@apollo/client';
 
 const GET_PRIVACY_POLICY_PAGE_DATA = gql`

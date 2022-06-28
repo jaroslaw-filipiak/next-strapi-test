@@ -1,49 +1,43 @@
-import Layout from '../components/layout';
-import Hero from '../components/hero';
-import Features from '../components/features';
-import CTA from '../components/cta';
-import WhyUs from '../components/why-us';
-import Steps from '../components/steps';
-import Testimonials from '../components/testimonials';
-import Logos from '../components/logos';
+import Layout from '../../components/layout';
+import Hero from '../../components/hero';
+import Features from '../../components/features';
+import CTA from '../../components/cta';
+import WhyUs from '../../components/why-us';
+import Steps from '../../components/steps';
+import Testimonials from '../../components/testimonials';
+import Logos from '../../components/logos';
 import Link from 'next/dist/client/link';
 import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
-import { useRouter } from 'next/router';
 
-export default function Home() {
-  const router = useRouter();
-  const lang = router.locale.slice(0, 2);
-
-  const GET_BOTH_CTA_DATA = gql`
-    query getFeatures {
-      pageHomepage(locale: "${lang}") {
-        data {
-          attributes {
-            CTA {
-              has_icon
-              cta_content
-              cta_btn_txt
-              cta_icon {
-                data {
-                  attributes {
-                    url
-                    width
-                    height
-                  }
+const GET_BOTH_CTA_DATA = gql`
+  query getFeatures {
+    pageHomepage(locale: "pl") {
+      data {
+        attributes {
+          CTA {
+            has_icon
+            cta_content
+            cta_btn_txt
+            cta_icon {
+              data {
+                attributes {
+                  url
+                  width
+                  height
                 }
               }
             }
-            CTA_2 {
-              has_icon
-              cta_content
-              cta_btn_txt
-              cta_icon {
-                data {
-                  attributes {
-                    url
-                    width
-                  }
+          }
+          CTA_2 {
+            has_icon
+            cta_content
+            cta_btn_txt
+            cta_icon {
+              data {
+                attributes {
+                  url
+                  width
                 }
               }
             }
@@ -51,8 +45,10 @@ export default function Home() {
         }
       }
     }
-  `;
+  }
+`;
 
+export default function Home() {
   const { data, error, loading } = useQuery(GET_BOTH_CTA_DATA);
 
   if (loading) return <p></p>;

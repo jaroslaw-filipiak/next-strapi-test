@@ -37,7 +37,7 @@ const GET_COMPANY_TIMELINE = gql`
 const companyTimeline = () => {
   const { data, error, loading } = useQuery(GET_COMPANY_TIMELINE);
 
-  if (loading) return <p>loading..</p>;
+  if (loading) return <p></p>;
   if (error) return <p>error...</p>;
 
   return (
