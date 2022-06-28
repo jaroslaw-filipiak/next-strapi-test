@@ -33,12 +33,11 @@ export default function Features() {
   const { data, error, loading } = useQuery(GET_FEATURES);
   const [btnContent, setBtnContent] = useState('Więcej');
 
-  if (loading) return <p>loading..</p>;
+  if (loading) return <p></p>;
   if (error) return <p>error...</p>;
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(e.target);
 
     const dataItem = e.target.dataset.item;
     const excerpt = document.querySelector(`.${dataItem}--excerpt`);

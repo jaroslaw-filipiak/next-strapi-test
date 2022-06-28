@@ -2,10 +2,36 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
+import { useQuery, gql } from '@apollo/client';
 
 const newsletterForm = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_LAW_INFO = gql`
+    query getLawInfo {
+      pageHomepage(locale: "${lang}") {
+        data {
+          attributes {
+            Hero {
+              newsletter_law_info
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const { data, error, loading } = useQuery(GET_LAW_INFO);
+
+  console.log(data);
+
   const [isLawInfoVisible, setLawInfoVisibility] = useState(false);
   const [isEmailSended, setSubscription] = useState(false);
+
+  if (loading) return <p></p>;
+  if (error) return <p>error...</p>;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -30,7 +56,7 @@ const newsletterForm = () => {
 
     const response = await fetch(endpoint, options);
 
-    if (response.status === 200) {
+    if ((response.status === 200) & (lang === 'pl')) {
       toast.success('Dziękujemy za zapis!', {
         position: 'top-right',
         autoClose: 3000,
@@ -43,8 +69,31 @@ const newsletterForm = () => {
 
       setSubscription(true);
       clearInputData();
-    } else {
+    } else if ((response.status !== 200) & (lang === 'pl')) {
       toast.warning('Upsss. spróbuj ponownie za jakiś czas..', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setSubscription(false);
+    } else if ((response.status === 200) & (lang === 'en')) {
+      toast.warning('Thanks for subscription', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setSubscription(false);
+      clearInputData();
+    } else if ((response.status !== 200) & (lang === 'en')) {
+      toast.warning('Upsss. we have problem , try again', {
         position: 'top-right',
         autoClose: 3000,
         hideProgressBar: false,
@@ -93,31 +142,26 @@ const newsletterForm = () => {
 
         <div>
           <label htmlFor='submit-btn'>
-            <input
+            <button
               className='oan-btn'
               name='submit-btn'
               id='submit-btn'
               type='submit'
-
-              // :value="sendBtn"
-            />
+            >
+              {lang === 'pl' ? 'Prześlij' : 'Send'}
+            </button>
           </label>
         </div>
       </div>
 
       <div
+        dangerouslySetInnerHTML={{
+          __html: data.pageHomepage.data.attributes.Hero.newsletter_law_info,
+        }}
         className={`form--law-info ${
           isLawInfoVisible ? 'form--law-info__visible' : ''
         }`}
-      >
-        Wysyłając formularz, wyrażana jest zgoda na przetwarzanie danych
-        osobowych przez Online Advertising Network Sp. z o.o. w celach
-        promocyjnych i marketingowych usług własnych oraz informacji handlowych
-        o spółce drogą elektroniczną. W każdej chwili będziecie mogli Państwo
-        wycofać zgodę. Przetwarzamy Państwa dane osobowe, po Państwa akceptacji,
-        aby zapewnić Państwu lepszy kontakt z nami. Naszą zaktualizowaną
-        politykę prywatności znajdą Państwo <Link href='/gdpr'>tutaj</Link>
-      </div>
+      ></div>
     </form>
   );
 };

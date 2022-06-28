@@ -1,14 +1,21 @@
-import Link from 'next/dist/client/link';
+import { useRouter } from 'next/router';
 
 const langSwitcher = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
-      <Link href='/'>
-        <a className={'lang-active'}>en |</a>
-      </Link>
-      <Link href='/'>
-        <a className={''}> pl</a>
-      </Link>
+      <a onClick={handleClick} href='/'>
+        <a className={lang === 'en' ? 'lang-active' : ''}>en |</a>
+      </a>
+      <a onClick={handleClick} href='/'>
+        <a className={lang === 'pl' ? 'lang-active' : ''}> pl</a>
+      </a>
     </div>
   );
 };

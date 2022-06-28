@@ -28,7 +28,7 @@ const GET_STEPS_CONTENT = gql`
 const steps = () => {
   const { data, error, loading } = useQuery(GET_STEPS_CONTENT);
 
-  if (loading) return <p>loading..</p>;
+  if (loading) return <p></p>;
   if (error) return <p>error...</p>;
 
   return (

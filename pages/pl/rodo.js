@@ -1,8 +1,8 @@
-import Layout from '../components/layout';
-import GdprHero from '../components/gdprHero';
-import Icons from '../components/icons';
+import Layout from '../../components/layout';
+import GdprHero from '../../components/gdprHero';
+import Icons from '../../components/icons';
 import { useQuery, gql } from '@apollo/client';
-import CTA from '../components/cta';
+import CTA from '../../components/cta';
 import Link from 'next/link';
 
 const GET_PAGE_RODO_DATA = gql`

@@ -17,7 +17,7 @@ const GET_TESTIMONIALS = gql`
 const testimonials = () => {
   const { data, error, loading } = useQuery(GET_TESTIMONIALS);
 
-  if (loading) return <p>loading..</p>;
+  if (loading) return <p></p>;
   if (error) return <p>error...</p>;
 
   return (

@@ -19,7 +19,7 @@ const advertisingPrivacyPolicy = () => {
     GET_ADVERTISING_PRIVACY_POLICY_PAGE_DATA
   );
 
-  if (loading) return <p>loading..</p>;
+  if (loading) return <p></p>;
   if (error) return <p>error...</p>;
 
   console.log(data);

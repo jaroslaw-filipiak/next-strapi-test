@@ -28,7 +28,7 @@ const GET_LOGOS = gql`
 const logos = () => {
   const { data, error, loading } = useQuery(GET_LOGOS);
 
-  if (loading) return <p>loading..</p>;
+  if (loading) return <p></p>;
   if (error) return <p>error...</p>;
 
   return (

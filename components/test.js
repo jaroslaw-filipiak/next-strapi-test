@@ -16,7 +16,7 @@ const GET_FORMS = gql`
 export default function Test() {
   const { data, error, loading } = useQuery(GET_FORMS);
 
-  if (loading) return <p>loading..</p>;
+  if (loading) return <p></p>;
   if (error) return <p>error...</p>;
 
   return (

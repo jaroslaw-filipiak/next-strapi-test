@@ -1,8 +1,8 @@
-import Layout from '../components/layout';
-import AboutUsHero from '../components/aboutUsHero';
-import CompanyTimeline from '../components/companyTimeline';
-import Counters from '../components/counters';
-import CTA from '../components/cta';
+import Layout from '../../components/layout';
+import AboutUsHero from '../../components/aboutUsHero';
+import CompanyTimeline from '../../components/companyTimeline';
+import Counters from '../../components/counters';
+import CTA from '../../components/cta';
 import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
 import Link from 'next/dist/client/link';

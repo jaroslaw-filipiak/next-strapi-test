@@ -34,7 +34,7 @@ const GET_COUNTERS_DATA = gql`
 const counters = () => {
   const { data, error, loading } = useQuery(GET_COUNTERS_DATA);
 
-  if (loading) return <p>loading..</p>;
+  if (loading) return <p></p>;
   if (error) return { error };
 
   return (

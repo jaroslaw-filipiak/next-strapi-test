@@ -26,7 +26,7 @@ const GET_WHY_US_CONTENT = gql`
 const whyUs = () => {
   const { data, error, loading } = useQuery(GET_WHY_US_CONTENT);
 
-  if (loading) return <p>loading..</p>;
+  if (loading) return <p></p>;
   if (error) {
   }
 
