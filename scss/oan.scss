@@ -89,7 +89,44 @@ a.is-active {
 }
 
 a.lang-active {
-  color: $accent !important;
+  a {
+    color: #00a6eb !important;
+    display: inline-block;
+    position: relative;
+    margin: 0px 15px;
+  }
+
+  &-en {
+    a {
+      position: relative;
+      &::before {
+        content: '';
+        width: 1px;
+        height: 100%;
+        background-color: #00a6eb;
+        display: block;
+        position: absolute;
+        right: -8px;
+        top: 0;
+      }
+    }
+  }
+
+  &-pl {
+    a {
+      position: relative;
+      &::before {
+        content: '';
+        width: 1px;
+        height: 100%;
+        background-color: #00a6eb;
+        display: block;
+        position: absolute;
+        left: -8px;
+        top: 0;
+      }
+    }
+  }
 }
 
 .mw-500 {

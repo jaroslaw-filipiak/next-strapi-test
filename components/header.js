@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/dist/client/image';
 import LangSwitcher from './langSwitcher';
+import LocaleSwitcher from './locale-switcher';
 import { useRouter } from 'next/router';
 
 export default function () {
@@ -86,8 +87,8 @@ export default function () {
                       {lang === 'en' ? 'Contact' : 'Kontakt'}
                     </a>
                   </Link>
+                  <LocaleSwitcher />
                   <LangSwitcher />
-
                   <Link href='/contact'>
                     <a
                       className={

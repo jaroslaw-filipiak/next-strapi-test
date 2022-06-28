@@ -10,12 +10,12 @@ const langSwitcher = () => {
 
   return (
     <div>
-      <a onClick={handleClick} href='/'>
+      {/* <a onClick={handleClick} href='/'>
         <a className={lang === 'en' ? 'lang-active' : ''}>en |</a>
       </a>
       <a onClick={handleClick} href='/'>
         <a className={lang === 'pl' ? 'lang-active' : ''}> pl</a>
-      </a>
+      </a> */}
     </div>
   );
 };
