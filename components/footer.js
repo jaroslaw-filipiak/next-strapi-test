@@ -20,9 +20,7 @@ export default () => {
               </div>
 
               <div className='footer--menu pt-3 pt-lg-0 text-center text-lg-start p-0 footer-col footer-col-2'>
-                <Link href='/offer'>
-                  {lang === 'pl' ? 'Oferta /' : 'Offer /'}
-                </Link>
+                <Link href='/'>{lang === 'pl' ? 'Oferta /' : 'Offer /'}</Link>
                 <Link href='/about'>
                   {lang === 'pl' ? 'O nas /' : 'About us /'}
                 </Link>
