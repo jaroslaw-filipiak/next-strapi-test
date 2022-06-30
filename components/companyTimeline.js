@@ -94,10 +94,7 @@ const companyTimeline = () => {
             >
               <Swiper
                 breakpoints={{
-                  576: {
-                    slidesPerView: 2,
-                  },
-                  768: {
+                  0: {
                     slidesPerView: 1,
                   },
                 }}

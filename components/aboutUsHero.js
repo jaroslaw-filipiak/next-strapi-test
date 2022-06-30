@@ -77,8 +77,8 @@ const aboutUsHero = () => {
               <div className='about-us-hero--slider-wrapper'>
                 <Swiper
                   breakpoints={{
-                    576: {
-                      slidesPerView: 2,
+                    0: {
+                      slidesPerView: 1,
                     },
                     768: {
                       slidesPerView: 1,

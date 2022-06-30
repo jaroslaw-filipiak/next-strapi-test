@@ -27,7 +27,7 @@ const advertisingPrivacyPolicy = () => {
   return (
     <Layout>
       <div className='empty-space'></div>
-      <section className='content-page'>
+      <section className='content-page  content-page__txt-page'>
         <div className='container-fluid'>
           <div className='container'>
             <div className='row pb-3'>

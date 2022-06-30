@@ -35,12 +35,12 @@ const logos = () => {
     <section className='logos-slider'>
       <div className='container-fluid'>
         <div className='container'>
-          <div className='row d-flex flex-xl-nowrap align-items-center justify-content-center'>
+          <div className='row d-flex  flex-xl-nowrap align-items-center justify-content-center'>
             {data.pageHomepage.data.attributes.Logos.logos.map(
               (item, index) => (
                 <div
                   key={index}
-                  className='logos-slider--logo col col-sm-6 col-xl-2'
+                  className='logos-slider--logo col-12 col-sm-6 col-xl-2'
                 >
                   <Image
                     data-aos='fade-up'
