@@ -42,7 +42,7 @@ export default function () {
         <div className='container-fluid'>
           <div className='container'>
             <div className='row d-flex flex-column flex-lg-row align-items-center'>
-              <div className='col-12 col-lg-4 d-flex justify-content-center justify-content-lg-start'>
+              <div className='col-12 col-lg-3 d-flex justify-content-center justify-content-lg-start'>
                 <a className='logo d-none d-lg-block' href='/'>
                   <Image
                     src='/img/logo.png'
@@ -53,7 +53,7 @@ export default function () {
                   />
                 </a>
               </div>
-              <div className='col-12 col-lg-8 nav--wrapper'>
+              <div className='col-12 col-lg-9 nav--wrapper'>
                 <nav
                   className='d-flex flex-column flex-lg-row align-items-center'
                   data-aos='fade-up'
