@@ -34,15 +34,15 @@ const cookieLaw = () => {
 
   return (
     <div
-      class={
+      className={
         isCookieSet
           ? 'd-none container-fluid cookie-law-banner'
           : `container-fluid cookie-law-banner`
       }
     >
-      <div class='container'>
-        <div class='row'>
-          <div class='cookie-law-banner--content'>
+      <div className='container'>
+        <div className='row'>
+          <div className='cookie-law-banner--content'>
             <p>
               {lang === 'pl'
                 ? `Ta strona wykorzystuje pliki cookies zainstalowane przez Online
@@ -72,7 +72,7 @@ const cookieLaw = () => {
                 {lang === 'pl' ? 'Polityce Prywatności' : 'Privacy policy'}
               </Link>
             </p>
-            <button onClick={handleClick} class='oan-btn'>
+            <button onClick={handleClick} className='oan-btn'>
               {lang === 'pl' ? 'Akceptuje' : 'Accept'}
             </button>
           </div>

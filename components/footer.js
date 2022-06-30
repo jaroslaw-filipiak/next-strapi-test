@@ -1,6 +1,7 @@
 import Link from 'next/dist/client/link';
 import { useRouter } from 'next/router';
 import CookieLaw from './cookieLaw';
+import Script from 'next/script';
 
 export default () => {
   const router = useRouter();
