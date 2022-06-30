@@ -1,9 +1,14 @@
 import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
+import { useRouter } from 'next/router';
 
-const GET_LOGOS = gql`
+const logos = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_LOGOS = gql`
   query getFeatures {
-    pageHomepage(locale: "pl") {
+    pageHomepage(locale: "${lang}") {
       data {
         attributes {
           Logos {
@@ -25,7 +30,6 @@ const GET_LOGOS = gql`
   }
 `;
 
-const logos = () => {
   const { data, error, loading } = useQuery(GET_LOGOS);
 
   if (loading) return <p></p>;
