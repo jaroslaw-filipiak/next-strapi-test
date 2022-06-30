@@ -58,12 +58,12 @@ const steps = () => {
                     className={`col step step-${index + 1}`}
                     key={item.icon_txt}
                   >
-                    <Image
+                    {/* <Image
                       src={item.icon_img.data.attributes.url}
                       width={106}
                       height={109}
                       alt=''
-                    />
+                    /> */}
                     <p>{item.icon_txt}</p>
                   </div>
                 )

@@ -11,7 +11,7 @@ const whyUs = () => {
       pageHomepage(locale: "${lang}") {
         data {
           attributes {
-            Table {
+            Tables {
               first_column_title
               second_column_title
               section_title
@@ -29,6 +29,8 @@ const whyUs = () => {
   `;
   const { data, error, loading } = useQuery(GET_WHY_US_CONTENT);
 
+  console.log(data);
+
   if (loading) return <p></p>;
   if (error) {
   }
@@ -39,11 +41,12 @@ const whyUs = () => {
         <div className='container'>
           <div className='row'>
             <div className='col text-center' data-aos='fade-up'>
-              {/* <h3
+              <h3
                 dangerouslySetInnerHTML={{
-                  __html: data.pageHomepage.data.attributes.Table.section_title,
+                  __html:
+                    data.pageHomepage.data.attributes.Tables.section_title,
                 }}
-              ></h3> */}
+              ></h3>
             </div>
           </div>
 
@@ -56,11 +59,14 @@ const whyUs = () => {
                 >
                   <div className='col col-4 d-flex align-items-center justify-content-center'></div>
                   <div className='col col-4 d-flex align-items-center justify-content-center'>
-                    {data.pageHomepage.data.attributes.Table.first_column_title}
+                    {
+                      data.pageHomepage.data.attributes.Tables
+                        .first_column_title
+                    }
                   </div>
                   <div className='col col-4 d-flex align-items-center justify-content-center'>
                     {
-                      data.pageHomepage.data.attributes.Table
+                      data.pageHomepage.data.attributes.Tables
                         .second_column_title
                     }
                   </div>
@@ -71,7 +77,7 @@ const whyUs = () => {
             <div className='row d-flex justify-content-center'>
               <div className='why-us-table--body col-12 col-lg-8'>
                 <div className='why-us-table--row row d-flex justify-content-center'>
-                  {data.pageHomepage.data.attributes.Table.table_row_repeater_item.map(
+                  {data.pageHomepage.data.attributes.Tables.table_row_repeater_item.map(
                     (item) => (
                       <React.Fragment key={item.key}>
                         <div className='col col-4 border d-flex align-items-center justify-content-start'>
