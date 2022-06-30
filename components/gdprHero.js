@@ -1,26 +1,29 @@
 import { useQuery, gql } from '@apollo/client';
+import { useRouter } from 'next/router';
 
-const GET_GDPR_HERO_DATA = gql`
-  query getCounters {
-    pageRodo(locale: "pl") {
-      data {
-        attributes {
-          page_title
-          rodo_header
-          RODO_main_icon {
-            data {
-              attributes {
-                url
+const gdprHero = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_GDPR_HERO_DATA = gql`
+    query getCounters {
+      pageRodo(locale: "${lang}") {
+        data {
+          attributes {
+            page_title
+            rodo_header
+            RODO_main_icon {
+              data {
+                attributes {
+                  url
+                }
               }
             }
           }
         }
       }
     }
-  }
-`;
-
-const gdprHero = () => {
+  `;
   const { data, error, loading } = useQuery(GET_GDPR_HERO_DATA);
 
   if (loading) return <p></p>;

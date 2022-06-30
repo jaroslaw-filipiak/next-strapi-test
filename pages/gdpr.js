@@ -4,10 +4,15 @@ import Icons from '../components/icons';
 import { useQuery, gql } from '@apollo/client';
 import CTA from '../components/cta';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-const GET_PAGE_RODO_DATA = gql`
+export default () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_PAGE_RODO_DATA = gql`
   query getFeatures {
-    pageRodo(locale: "pl") {
+    pageRodo(locale: "${lang}") {
       data {
         attributes {
           page_title
@@ -63,7 +68,6 @@ const GET_PAGE_RODO_DATA = gql`
   }
 `;
 
-export default () => {
   const { data, error, loading } = useQuery(GET_PAGE_RODO_DATA);
 
   if (loading) return <p></p>;
