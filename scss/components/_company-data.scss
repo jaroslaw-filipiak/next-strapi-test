@@ -1,0 +1,41 @@
+.company-data {
+  .container {
+    position: relative;
+    margin-top: -74px;
+    background-color: #fff;
+    padding: 60px 55px 40px 55px;
+    @include boxShadow;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+  }
+  &-col-1 {
+    p {
+      position: relative;
+      margin: 40px 0px;
+      @include md {
+        max-width: 400px;
+      }
+      &:after {
+        content: '';
+        width: 21px;
+        height: 6px;
+        background-color: $accent;
+        position: absolute;
+        left: 10px;
+        top: -20px;
+        transform: translate(-50%, 0%);
+      }
+      &:before {
+        content: '';
+        width: 21px;
+        height: 6px;
+        background-color: $accent;
+        position: absolute;
+        left: 10px;
+        bottom: -20px;
+        transform: translate(-50%, 0%);
+      }
+    }
+  }
+}

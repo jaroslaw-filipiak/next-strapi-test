@@ -19,7 +19,7 @@ export default function () {
   return (
     <div>
       <div className='hamburger-menu'>
-        <a className='logo d-lg-none' href='/index'>
+        <a className='logo d-lg-none' href='/'>
           <Image
             width={60}
             height={23.86}

@@ -1,0 +1,127 @@
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(0);
+  }
+}
+.map {
+  margin-top: -74px;
+  background-color: #eaeaea;
+  &--bg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    @include xl {
+      background-size: contain;
+    }
+  }
+  .map-pin {
+    position: absolute;
+    left: 18%;
+    top: 60%;
+    @include sm {
+      left: 20%;
+      top: 60%;
+    }
+    @include md {
+      left: 30%;
+      top: 60%;
+    }
+    @include lg {
+      left: 35%;
+      top: 86%;
+    }
+    @include xl {
+      left: 42%;
+      top: 83%;
+    }
+    @include xxl {
+      left: 40%;
+      top: 85%;
+    }
+    &--animation {
+      .hex {
+        background: url('/img/hex.png') 50% no-repeat;
+        background-size: cover;
+        position: absolute;
+        left: -82px;
+        top: -63px;
+        &-1 {
+          width: 200px;
+          height: 173px;
+          animation: myAnim 0.8s ease-in 0s infinite reverse backwards;
+        }
+        &-2 {
+          width: 200px;
+          height: 173px;
+          animation: myAnim 0.8s ease-in 1s infinite reverse backwards;
+        }
+        &-2 {
+          width: 200px;
+          height: 173px;
+          animation: myAnim 0.8s ease-in 1s infinite reverse backwards;
+        }
+      }
+    }
+  }
+  .container-fluid {
+    height: 70vh;
+    @include max-lg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @include lg {
+      height: 660px;
+    }
+    .row {
+      @include max-lg {
+        padding-top: 74px;
+        padding-bottom: 144px;
+      }
+    }
+  }
+  &--infobox {
+    background-color: #fff;
+    padding: 30px 24px;
+
+    @include max-lg {
+      //   margin-top: 74px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    @include lg {
+      margin-top: 180px;
+
+      max-width: 240px;
+    }
+    &-city {
+      position: relative;
+      margin-bottom: 40px;
+      &:after {
+        content: '';
+        width: 21px;
+        height: 6px;
+        background-color: $accent;
+        position: absolute;
+        left: 10px;
+        bottom: -23px;
+        transform: translate(-50%, 0%);
+      }
+    }
+    a {
+      display: inline-flex;
+      margin-top: 30px;
+    }
+  }
+  .oan-btn {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

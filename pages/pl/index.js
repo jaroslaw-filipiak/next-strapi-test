@@ -9,10 +9,15 @@ import Logos from '../../components/logos';
 import Link from 'next/dist/client/link';
 import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
+import { useRouter } from 'next/router';
 
-const GET_BOTH_CTA_DATA = gql`
+export default function Home() {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_BOTH_CTA_DATA = gql`
   query getFeatures {
-    pageHomepage(locale: "pl") {
+    pageHomepage(locale: "${lang}") {
       data {
         attributes {
           CTA {
@@ -48,7 +53,6 @@ const GET_BOTH_CTA_DATA = gql`
   }
 `;
 
-export default function Home() {
   const { data, error, loading } = useQuery(GET_BOTH_CTA_DATA);
 
   if (loading) return <p></p>;

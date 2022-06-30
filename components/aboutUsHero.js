@@ -7,24 +7,6 @@ import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
 import { useRouter } from 'next/router';
 
-const HERO_SLIDERS = gql`
-  query getWhyUsContent {
-    pageAbout(locale: "pl") {
-      data {
-        attributes {
-          Title
-          Slider {
-            slider_repeater {
-              slider_title
-              slider_subtitle
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
 const aboutUsHero = () => {
   const router = useRouter();
   const lang = router.locale.slice(0, 2);
@@ -77,8 +59,8 @@ const aboutUsHero = () => {
               <div className='about-us-hero--slider-wrapper'>
                 <Swiper
                   breakpoints={{
-                    576: {
-                      slidesPerView: 2,
+                    0: {
+                      slidesPerView: 1,
                     },
                     768: {
                       slidesPerView: 1,

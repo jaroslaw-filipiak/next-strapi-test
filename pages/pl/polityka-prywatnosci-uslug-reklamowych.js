@@ -1,9 +1,14 @@
 import Layout from '../../components/layout';
 import { useQuery, gql } from '@apollo/client';
+import { useRouter } from 'next/router';
 
-const GET_ADVERTISING_PRIVACY_POLICY_PAGE_DATA = gql`
+const advertisingPrivacyPolicy = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_ADVERTISING_PRIVACY_POLICY_PAGE_DATA = gql`
   query getFeatures {
-    pagePrivacyPolicyAdvertising(locale: "pl") {
+    pagePrivacyPolicyAdvertising(locale: "${lang}") {
       data {
         attributes {
           page_title
@@ -14,7 +19,6 @@ const GET_ADVERTISING_PRIVACY_POLICY_PAGE_DATA = gql`
   }
 `;
 
-const advertisingPrivacyPolicy = () => {
   const { data, error, loading } = useQuery(
     GET_ADVERTISING_PRIVACY_POLICY_PAGE_DATA
   );
@@ -27,7 +31,7 @@ const advertisingPrivacyPolicy = () => {
   return (
     <Layout>
       <div className='empty-space'></div>
-      <section className='content-page'>
+      <section className='content-page  content-page__txt-page'>
         <div className='container-fluid'>
           <div className='container'>
             <div className='row pb-3'>

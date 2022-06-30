@@ -1,9 +1,14 @@
 import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
+import { useRouter } from 'next/router';
 
-const GET_LOGOS = gql`
+const logos = () => {
+  const router = useRouter();
+  const lang = router.locale.slice(0, 2);
+
+  const GET_LOGOS = gql`
   query getFeatures {
-    pageHomepage(locale: "pl") {
+    pageHomepage(locale: "${lang}") {
       data {
         attributes {
           Logos {
@@ -25,7 +30,6 @@ const GET_LOGOS = gql`
   }
 `;
 
-const logos = () => {
   const { data, error, loading } = useQuery(GET_LOGOS);
 
   if (loading) return <p></p>;
@@ -35,12 +39,12 @@ const logos = () => {
     <section className='logos-slider'>
       <div className='container-fluid'>
         <div className='container'>
-          <div className='row d-flex flex-xl-nowrap align-items-center justify-content-center'>
+          <div className='row d-flex  flex-xl-nowrap align-items-center justify-content-center'>
             {data.pageHomepage.data.attributes.Logos.logos.map(
               (item, index) => (
                 <div
                   key={index}
-                  className='logos-slider--logo col col-sm-6 col-xl-2'
+                  className='logos-slider--logo col-12 col-sm-6 col-xl-2'
                 >
                   <Image
                     data-aos='fade-up'

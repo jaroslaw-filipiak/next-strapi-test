@@ -1,5 +1,6 @@
 import Link from 'next/dist/client/link';
 import { useRouter } from 'next/router';
+import CookieLaw from './cookieLaw';
 
 export default () => {
   const router = useRouter();
@@ -64,6 +65,7 @@ export default () => {
           </div>
         </div>
       </div>
+      <CookieLaw></CookieLaw>
     </footer>
   );
 };
