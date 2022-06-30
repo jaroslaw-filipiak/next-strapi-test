@@ -25,8 +25,6 @@ const contactForm = () => {
 
   const { data, error, loading } = useQuery(GET_CF_DATA);
 
-  console.log(data);
-
   if (loading) return <p></p>;
   if (error) return <p>error...</p>;
 
@@ -46,8 +44,6 @@ const contactForm = () => {
     const message = document.querySelector('#message');
 
     const JSONdata = JSON.stringify(data);
-
-    console.log(JSONdata);
 
     const endpoint = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/forms`;
 
@@ -77,8 +73,6 @@ const contactForm = () => {
         name.value = '';
         email.value = '';
         message.value = '';
-
-        console.log(name);
       } else {
         toast.warning('Upsss. spróbuj ponownie za jakiś czas..', {
           position: 'top-right',
@@ -107,8 +101,6 @@ const contactForm = () => {
         name.value = '';
         email.value = '';
         message.value = '';
-
-        console.log(name);
       } else {
         toast.warning('Upsss. try again after 3 minutes', {
           position: 'top-right',

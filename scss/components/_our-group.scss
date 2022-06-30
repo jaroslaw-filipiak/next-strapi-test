@@ -1,0 +1,33 @@
+.our-group {
+  padding-top: 90px;
+}
+.our-brands {
+  &--item {
+    margin-top: 40px;
+  }
+  &--logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 30%;
+    @include max-lg {
+      margin-bottom: 30px;
+    }
+  }
+  &--excerpt {
+    padding-left: 30px;
+    position: relative;
+    @include lg {
+      &:before {
+        content: '';
+        width: 21px;
+        height: 6px;
+        background-color: $accent;
+        position: absolute;
+        left: 40px;
+        top: -30px;
+        transform: translate(-50%, 0%);
+      }
+    }
+  }
+}

@@ -90,13 +90,6 @@ input[disabled] {
   }
 }
 
-.locale-switcher {
-  @include max-lg {
-    position: relative;
-    left: -10px;
-  }
-}
-
 a.is-active {
   color: $accent;
 }
@@ -106,21 +99,26 @@ a.lang-active {
     color: #00a6eb !important;
     display: inline-block;
     position: relative;
-    margin: 0px 15px;
+    margin: 0px 5px;
+    @include lg {
+      margin: 0px 15px;
+    }
   }
 
   &-en {
     a {
       position: relative;
-      &::before {
-        content: '';
-        width: 1px;
-        height: 100%;
-        background-color: #00a6eb;
-        display: block;
-        position: absolute;
-        right: -8px;
-        top: 0;
+      @include lg {
+        &::before {
+          content: '';
+          width: 1px;
+          height: 100%;
+          background-color: #00a6eb;
+          display: block;
+          position: absolute;
+          right: -8px;
+          top: 0;
+        }
       }
     }
   }
@@ -128,15 +126,17 @@ a.lang-active {
   &-pl {
     a {
       position: relative;
-      &::before {
-        content: '';
-        width: 1px;
-        height: 100%;
-        background-color: #00a6eb;
-        display: block;
-        position: absolute;
-        left: -8px;
-        top: 0;
+      @include lg {
+        &::before {
+          content: '';
+          width: 1px;
+          height: 100%;
+          background-color: #00a6eb;
+          display: block;
+          position: absolute;
+          left: -8px;
+          top: 0;
+        }
       }
     }
   }
@@ -191,3 +191,6 @@ a.lang-active {
 @import './components/newsletter_form';
 @import './components/gdpr_hero';
 @import './components/icons';
+@import './components/map';
+@import './components/company-data';
+@import './components/our-group';
