@@ -73,7 +73,7 @@ export default function () {
                         router.pathname == '/about' ? 'router-link-active' : ''
                       }
                     >
-                      {lang === 'en' ? 'About' : 'O nas'}
+                      {lang === 'en' ? 'About us' : 'O nas'}
                     </a>
                   </Link>
                   <Link href='/contact'>
@@ -97,7 +97,7 @@ export default function () {
                           : 'oan-btn'
                       }
                     >
-                      {lang === 'en' ? 'Write to us' : 'Napisz do nas'}
+                      {lang === 'en' ? 'Contact us' : 'Napisz do nas'}
                     </a>
                   </Link>
                 </nav>
