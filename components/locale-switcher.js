@@ -6,6 +6,9 @@ export default function LocaleSwitcher() {
   const { locales, locale: activeLocale } = router;
   const otherLocales = locales.filter((locale) => locale !== activeLocale);
 
+  console.log(locales);
+  console.log(activeLocale);
+
   return (
     <div className='locale-switcher'>
       {locales.map((locale) => {
@@ -19,9 +22,9 @@ export default function LocaleSwitcher() {
             }
             key={locale}
           >
-            <a href={{ pathname, query }} as={asPath} locale={locale}>
-              {locale.slice(0, 2)}
-            </a>
+            <Link href={{ pathname, query }} as={asPath} locale={locale}>
+              <a>{locale.slice(0, 2)}</a>
+            </Link>
           </a>
         );
       })}
