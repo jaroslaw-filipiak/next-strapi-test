@@ -19,6 +19,7 @@ const companyData = () => {
         }
       }
     `;
+
   const { data, error, loading } = useQuery(GET_COMPANY_DATA_CONTENT);
 
   if (loading) return <p></p>;
