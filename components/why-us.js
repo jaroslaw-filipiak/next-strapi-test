@@ -34,9 +34,9 @@ const whyUs = () => {
   }
 
   return (
-    <section className='why-us' data-aos='fade-up'>
+    <section className='why-us'>
       <div className='container-fluid'>
-        <div className='container'>
+        <div className='container container-1170'>
           <div className='row'>
             <div className='col text-center' data-aos='fade-up'>
               <h3
@@ -50,14 +50,14 @@ const whyUs = () => {
 
           <div className='row why-us-table--container'>
             <div className='d-flex justify-content-center'>
-              <div className='why-us-table--header col-12 col-lg-8'>
+              <div className='why-us-table--header col-12'>
                 <div
                   className='why-us-table--row why-us-table--header row d-flex justify-content-center'
                   style={{ width: '100%' }}
                 >
                   <div className='col col-4 d-flex align-items-center justify-content-center'></div>
                   <div
-                    className='col col-4 d-flex align-items-center justify-content-center'
+                    className='col col-4 d-flex align-items-center justify-content-center first-col-title'
                     dangerouslySetInnerHTML={{
                       __html:
                         data.pageHomepage.data.attributes.Tables
@@ -65,7 +65,7 @@ const whyUs = () => {
                     }}
                   ></div>
                   <div
-                    className='col col-4 d-flex align-items-center justify-content-center'
+                    className='col col-4 d-flex align-items-center justify-content-center sec-col-title'
                     dangerouslySetInnerHTML={{
                       __html:
                         data.pageHomepage.data.attributes.Tables
@@ -77,13 +77,13 @@ const whyUs = () => {
             </div>
 
             <div className='d-flex justify-content-center'>
-              <div className='why-us-table--body col-12 col-lg-8'>
+              <div className='why-us-table--body col-12'>
                 <div className='why-us-table--row row m-0 p-0 d-flex justify-content-center'>
                   {data.pageHomepage.data.attributes.Tables.table_row_repeater_item.map(
                     (item) => (
                       <React.Fragment key={item.key}>
-                        <div className='col col-4 border d-flex align-items-center justify-content-start'>
-                          {item.row_title}
+                        <div className='col col-4 border d-flex align-items-center justify-content-start item-row-title'>
+                          <span> {item.row_title}</span>
                         </div>
 
                         <div
