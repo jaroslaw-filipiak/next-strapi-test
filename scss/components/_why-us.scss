@@ -76,4 +76,19 @@
   h3 {
     margin-bottom: 70px;
   }
+
+  .item-row-title {
+    color: #344185;
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  .first-col-title,
+  .sec-col-title {
+    margin: 0 auto;
+
+    @include lg {
+      max-width: 25%;
+    }
+  }
 }
