@@ -25,7 +25,7 @@
     font-weight: 400;
     font-size: 12px;
     padding: 0px 4px;
-    @include boxShadow;
+    // @include boxShadow;
     @include lg {
       font-size: 18px;
       font-weight: bold;
@@ -54,7 +54,7 @@
   }
   &-table--body {
     position: relative;
-    @include boxShadow;
+    // @include boxShadow;
     @include max-lg {
       font-size: 12px;
     }
@@ -91,4 +91,17 @@
       max-width: 25%;
     }
   }
+}
+
+.border-left {
+  border-left: 1px solid #dee2e6;
+}
+
+.border-right {
+  border-right: 1px solid #dee2e6;
+}
+
+.col-11-5 {
+  flex: 0 0 auto;
+  width: 94.666667%;
 }

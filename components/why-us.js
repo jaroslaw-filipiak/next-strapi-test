@@ -77,17 +77,17 @@ const whyUs = () => {
             </div>
 
             <div className='d-flex justify-content-center'>
-              <div className='why-us-table--body col-12'>
+              <div className='why-us-table--body col-11-5'>
                 <div className='why-us-table--row row m-0 p-0 d-flex justify-content-center'>
                   {data.pageHomepage.data.attributes.Tables.table_row_repeater_item.map(
                     (item) => (
                       <React.Fragment key={item.key}>
-                        <div className='col col-4 border d-flex align-items-center justify-content-start item-row-title'>
+                        <div className='col col-4 border-bottom ps-md-5  d-flex align-items-center justify-content-start item-row-title'>
                           <span> {item.row_title}</span>
                         </div>
 
                         <div
-                          className='col col-4 border d-flex align-items-center justify-content-center why-us-table--stars'
+                          className='col col-4 border-bottom border-left border-right  d-flex align-items-center justify-content-center why-us-table--stars'
                           style={{ position: 'relative' }}
                         >
                           <div className='stars--top'>
@@ -107,7 +107,7 @@ const whyUs = () => {
                         </div>
 
                         <div
-                          className='col col-4 border d-flex align-items-center justify-content-center why-us-table--stars'
+                          className='col col-4 border-bottom  d-flex align-items-center justify-content-center why-us-table--stars'
                           style={{ position: 'relative' }}
                         >
                           <div className='stars--top'>

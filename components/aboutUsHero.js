@@ -17,9 +17,9 @@ const aboutUsHero = () => {
       data {
         attributes {
           Title
+          title_before_slider
           Slider {
             slider_repeater {
-              slider_title
               slider_subtitle
             }
           }
@@ -57,6 +57,10 @@ const aboutUsHero = () => {
             </div>
             <div className='col'>
               <div className='about-us-hero--slider-wrapper'>
+                <div className='mb-3'>
+                  <h4>{data.pageAbout.data.attributes.title_before_slider}</h4>
+                </div>
+
                 <Swiper
                   breakpoints={{
                     0: {
@@ -78,7 +82,6 @@ const aboutUsHero = () => {
                           className='about-us-hero--slide noselect'
                           data-aos='fade-up'
                         >
-                          <h4>{item.slider_title}</h4>
                           <p>{item.slider_subtitle}</p>
                           <div className='about-us-hero--number'></div>
                         </div>
