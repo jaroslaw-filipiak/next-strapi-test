@@ -1,4 +1,4 @@
-import { Pagination, A11y } from 'swiper';
+import { Navigation, Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -73,9 +73,10 @@ const aboutUsHero = () => {
                       slidesPerView: 1,
                     },
                   }}
-                  modules={[Pagination, A11y]}
+                  modules={[Pagination, A11y, Navigation]}
                   spaceBetween={50}
                   slidesPerView={3}
+                  navigation
                   pagination={{ clickable: true }}
                   onSwiper={(e) => {
                     const index = e.$el[0].swiper.realIndex;
