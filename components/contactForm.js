@@ -123,6 +123,7 @@ const contactForm = () => {
             <div className='col col-lg-5 pb-5 pb-lg-0' data-aos='fade-up'>
               <h1>
                 <span
+                  className='underline'
                   dangerouslySetInnerHTML={{
                     __html: data.pageContact.data.attributes.Title,
                   }}

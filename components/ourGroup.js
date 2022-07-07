@@ -12,6 +12,7 @@ const ourGroup = () => {
         pageContact(locale: "${lang}") {
             data {
               attributes {
+                our_group_title
                 our_group {
                   first_item_logo {
                     data {
@@ -53,11 +54,12 @@ const ourGroup = () => {
         <div class='container'>
           <div class='row'>
             <div class='col' data-aos='fade-up'>
-              <h3 class='text-center'>
-                {lang === 'pl'
-                  ? 'Grupa Cloud Technologies'
-                  : 'Cloud Technologies Group'}
-              </h3>
+              <h3
+                class='text-center'
+                dangerouslySetInnerHTML={{
+                  __html: data.pageContact.data.attributes.our_group_title,
+                }}
+              ></h3>
             </div>
           </div>
 
@@ -68,14 +70,14 @@ const ourGroup = () => {
                   data.pageContact.data.attributes.our_group.first_item_logo
                     .data.attributes.url
                 }
-                width={193}
-                height={25}
+                width={344}
+                height={58}
               />
             </div>
           </div>
 
           <div class='row d-flex justify-content-center' data-aos='fade-up'>
-            <div class='col-12 col-lg-9'>
+            <div class='col-12 '>
               <span
                 dangerouslySetInnerHTML={{
                   __html:
