@@ -6,8 +6,15 @@ import 'swiper/css/pagination';
 import { useQuery, gql } from '@apollo/client';
 import Image from 'next/dist/client/image';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 const aboutUsHero = () => {
+  const [activeIndex, setIndex] = useState();
+
+  const setSlideNumber = (index) => {
+    setIndex(index);
+  };
+
   const router = useRouter();
   const lang = router.locale.slice(0, 2);
 
@@ -74,11 +81,20 @@ const aboutUsHero = () => {
                   spaceBetween={50}
                   slidesPerView={3}
                   pagination={{ clickable: true }}
+                  onSwiper={(e) => {
+                    const realIndex = e.$el[0].swiper.realIndex;
+                    const activeIndex = document.querySelector(
+                      `div[data-item-index="${realIndex}"]`
+                    );
+
+                    setSlideNumber(activeIndex);
+                  }}
                 >
                   {data.pageAbout.data.attributes.Slider.slider_repeater.map(
-                    (item) => (
+                    (item, index) => (
                       <SwiperSlide>
                         <div
+                          data-item-index={index}
                           className='about-us-hero--slide noselect'
                           data-aos='fade-up'
                         >
