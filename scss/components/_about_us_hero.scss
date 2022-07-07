@@ -13,10 +13,24 @@
   }
   &--slider-wrapper {
     max-width: 660px;
-    padding: 34px 36px 0px 36px;
+    padding: 34px 36px 50px 36px;
     border-radius: 15px;
     background-color: #fff;
     @include boxShadow;
+    position: relative;
+  }
+
+  &--item-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f4f4f4;
+    font-size: 90px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
   }
   &--slider__nav {
     position: relative;
