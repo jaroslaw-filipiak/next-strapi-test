@@ -163,10 +163,9 @@ const companyTimeline = () => {
                             width={item.timetable_icon.data.attributes.width}
                             height={item.timetable_icon.data.attributes.height}
                             alt=''
-                            style={{ margingRight: '30px' }}
                           />
                         </div>
-                        <div className='text-center text-lg-start'>
+                        <div className='text-center text-lg-start ps-lg-4'>
                           <h5 className='h3'>{item.year}</h5>
                           <p>{item.timetable_content}</p>
                         </div>

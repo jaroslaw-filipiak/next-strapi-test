@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/dist/client/image';
-import LangSwitcher from './langSwitcher';
 import LocaleSwitcher from './locale-switcher';
 import { useRouter } from 'next/router';
 
@@ -87,14 +86,15 @@ export default function () {
                       {lang === 'en' ? 'Contact' : 'Kontakt'}
                     </a>
                   </Link>
+
                   <LocaleSwitcher />
-                  <LangSwitcher />
+
                   <Link href='/contact'>
                     <a
                       className={
                         router.pathname == '/contact'
-                          ? 'oan-btn no-top-underline'
-                          : 'oan-btn'
+                          ? 'oan-btn no-top-underline d-block'
+                          : 'oan-btn d-block'
                       }
                     >
                       {lang === 'en' ? 'Contact us' : 'Napisz do nas'}

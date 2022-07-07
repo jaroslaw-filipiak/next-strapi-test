@@ -79,7 +79,7 @@ const newsletterForm = () => {
       });
       setSubscription(false);
     } else if ((response.status === 200) & (lang === 'en')) {
-      toast.warning('Thanks for subscription', {
+      toast.success('Thanks for subscription', {
         position: 'top-right',
         autoClose: 3000,
         hideProgressBar: false,
@@ -130,6 +130,7 @@ const newsletterForm = () => {
               required
               onFocus={handleFocus}
               onBlur={handleBlur}
+              placeholder={lang === 'pl' ? 'Twój email' : 'Your email'}
             />
           </label>
 
