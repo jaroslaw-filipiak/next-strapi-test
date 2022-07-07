@@ -1,4 +1,4 @@
-import { Pagination, A11y } from 'swiper';
+import { Navigation, Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -9,11 +9,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 const aboutUsHero = () => {
-  const [activeIndex, setIndex] = useState();
-
-  const setSlideNumber = (index) => {
-    setIndex(index);
-  };
+  const [itemIndex, setItemIndex] = useState(1);
 
   const router = useRouter();
   const lang = router.locale.slice(0, 2);
@@ -77,24 +73,27 @@ const aboutUsHero = () => {
                       slidesPerView: 1,
                     },
                   }}
-                  modules={[Pagination, A11y]}
+                  modules={[Pagination, A11y, Navigation]}
                   spaceBetween={50}
                   slidesPerView={3}
+                  navigation
                   pagination={{ clickable: true }}
                   onSwiper={(e) => {
-                    const realIndex = e.$el[0].swiper.realIndex;
-                    const activeIndex = document.querySelector(
-                      `div[data-item-index="${realIndex}"]`
-                    );
-
-                    setSlideNumber(activeIndex);
+                    const index = e.$el[0].swiper.realIndex;
+                    const sliderItem = index + 1;
+                    setItemIndex(sliderItem);
+                  }}
+                  onSlideChange={(e) => {
+                    const index = e.$el[0].swiper.realIndex;
+                    const sliderItem = index + 1;
+                    setItemIndex(sliderItem);
                   }}
                 >
                   {data.pageAbout.data.attributes.Slider.slider_repeater.map(
                     (item, index) => (
                       <SwiperSlide>
                         <div
-                          data-item-index={index}
+                          data-slider-index={index}
                           className='about-us-hero--slide noselect'
                           data-aos='fade-up'
                         >
@@ -105,6 +104,8 @@ const aboutUsHero = () => {
                     )
                   )}
                 </Swiper>
+
+                <div className='about-us-hero--item-index'>{itemIndex}</div>
               </div>
             </div>
           </div>

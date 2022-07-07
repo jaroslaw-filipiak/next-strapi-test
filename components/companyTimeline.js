@@ -19,7 +19,7 @@ const companyTimeline = () => {
 
   const setYear = (year) => {
     setActiveYear(year);
-    console.log('setYearFunc..');
+    // console.log('setYearFunc..');
   };
 
   const router = useRouter();
@@ -131,7 +131,7 @@ const companyTimeline = () => {
                   const yearOfActiveIndex =
                     activeIndex.getAttribute('data-year');
 
-                  console.log(yearOfActiveIndex);
+                  // console.log(yearOfActiveIndex);
 
                   setYear(yearOfActiveIndex);
                 }}
@@ -141,13 +141,10 @@ const companyTimeline = () => {
                     `div[data-item-index="${realIndex}"]`
                   );
 
-                  console.log('active index..' + activeIndex);
-                  console.log('active index..' + activeIndex);
-
                   const yearOfActiveIndex =
                     activeIndex.getAttribute('data-year');
 
-                  console.log(yearOfActiveIndex);
+                  // console.log(yearOfActiveIndex);
 
                   setYear(yearOfActiveIndex);
                 }}
