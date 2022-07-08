@@ -176,6 +176,10 @@ a.lang-active {
   height: 300px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 @import './components/header';
 @import './components/hero';
 @import './components/features';
@@ -197,3 +201,4 @@ a.lang-active {
 @import './components/our-group';
 @import './components/cookie-law';
 @import './components/locale-switcher';
+@import './components/preloader';
