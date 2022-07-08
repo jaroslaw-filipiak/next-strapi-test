@@ -84,6 +84,34 @@
       gap: 80px;
       flex-direction: row;
     }
+
+    a {
+      &:before {
+        transition: all 0.1s ease-in-out;
+        content: '';
+        width: 100%;
+        height: 0px;
+        background-color: $accent;
+        position: absolute;
+        display: block;
+        left: 0;
+        top: -35px;
+        transform: translate(0%, -50%);
+      }
+      &:hover {
+        &:before {
+          content: '';
+          width: 100%;
+          height: 6px;
+          background-color: $accent;
+          position: absolute;
+          display: block;
+          left: 0;
+          top: -35px;
+          transform: translate(0%, -50%);
+        }
+      }
+    }
   }
 
   .nav--right {
