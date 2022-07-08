@@ -1,8 +1,8 @@
 .locale-switcher {
   display: flex;
   flex-direction: row-reverse;
-
-  @include xxl {
-    margin-left: 100px;
+  @include md {
+    margin-right: 14px;
+    // margin-left: 100px;
   }
 }

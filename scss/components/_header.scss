@@ -74,6 +74,37 @@
     }
   }
 
+  .nav--left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    @include lg {
+      gap: 80px;
+      flex-direction: row;
+    }
+  }
+
+  .nav--right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    @include lg {
+      margin-top: 0;
+      flex-direction: row;
+    }
+
+    .oan-btn {
+      margin-top: 30px;
+      @include lg {
+        margin-top: 0px;
+      }
+    }
+  }
+
   nav {
     justify-content: flex-end;
     gap: 15px;

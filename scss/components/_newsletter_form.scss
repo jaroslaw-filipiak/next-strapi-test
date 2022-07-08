@@ -1,3 +1,17 @@
+.newsletter-form {
+  .oan-btn,
+  .home-hero--input {
+    min-height: 35px;
+    @include max-md {
+      margin-top: 22px;
+      width: 246px;
+    }
+    @include max-lg {
+      text-align: center;
+    }
+  }
+}
+
 .home-hero--input {
   padding: 4px 10px;
   outline: none;
@@ -10,17 +24,7 @@
     margin-right: 15px;
   }
 }
-.oan-btn,
-.home-hero--input {
-  min-height: 35px;
-  @include max-md {
-    margin-top: 22px;
-    width: 246px;
-  }
-  @include max-lg {
-    text-align: center;
-  }
-}
+
 input[type='text'] {
   @include lg {
     min-width: 380px !important;

@@ -54,52 +54,58 @@ export default function () {
               </div>
               <div className='col-12 col-lg-9 nav--wrapper'>
                 <nav
-                  className='d-flex flex-column flex-lg-row align-items-center'
+                  className='d-flex flex-column flex-lg-row align-items-center justify-content-lg-between'
                   data-aos='fade-up'
                 >
-                  <Link href='/'>
-                    <a
-                      className={
-                        router.pathname == '/' ? 'router-link-active' : ''
-                      }
-                    >
-                      {lang === 'en' ? 'Offer' : 'Oferta'}
-                    </a>
-                  </Link>
-                  <Link href='/about'>
-                    <a
-                      className={
-                        router.pathname == '/about' ? 'router-link-active' : ''
-                      }
-                    >
-                      {lang === 'en' ? 'About us' : 'O nas'}
-                    </a>
-                  </Link>
-                  <Link href='/contact'>
-                    <a
-                      className={
-                        router.pathname == '/contact'
-                          ? 'router-link-active'
-                          : ''
-                      }
-                    >
-                      {lang === 'en' ? 'Contact' : 'Kontakt'}
-                    </a>
-                  </Link>
+                  <div className='nav--left'>
+                    <Link href='/'>
+                      <a
+                        className={
+                          router.pathname == '/' ? 'router-link-active' : ''
+                        }
+                      >
+                        {lang === 'en' ? 'Offer' : 'Oferta'}
+                      </a>
+                    </Link>
+                    <Link href='/about'>
+                      <a
+                        className={
+                          router.pathname == '/about'
+                            ? 'router-link-active'
+                            : ''
+                        }
+                      >
+                        {lang === 'en' ? 'About us' : 'O nas'}
+                      </a>
+                    </Link>
+                    <Link href='/contact'>
+                      <a
+                        className={
+                          router.pathname == '/contact'
+                            ? 'router-link-active'
+                            : ''
+                        }
+                      >
+                        {lang === 'en' ? 'Contact' : 'Kontakt'}
+                      </a>
+                    </Link>
+                  </div>
 
-                  <LocaleSwitcher />
+                  <div className='nav--right d-flex align-items-center'>
+                    <LocaleSwitcher />
 
-                  <Link href='/contact'>
-                    <a
-                      className={
-                        router.pathname == '/contact'
-                          ? 'oan-btn no-top-underline d-block'
-                          : 'oan-btn d-block'
-                      }
-                    >
-                      {lang === 'en' ? 'Contact us' : 'Napisz do nas'}
-                    </a>
-                  </Link>
+                    <Link href='/contact'>
+                      <a
+                        className={
+                          router.pathname == '/contact'
+                            ? 'oan-btn no-top-underline d-block'
+                            : 'oan-btn d-block'
+                        }
+                      >
+                        {lang === 'en' ? 'Contact us' : 'Napisz do nas'}
+                      </a>
+                    </Link>
+                  </div>
                 </nav>
               </div>
             </div>
