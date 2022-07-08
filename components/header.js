@@ -18,7 +18,7 @@ export default function () {
   return (
     <div>
       <div className='hamburger-menu'>
-        <a className='logo d-lg-none' href='/'>
+        <Link className='logo d-lg-none' href='/'>
           <Image
             width={60}
             height={23.86}
@@ -26,7 +26,7 @@ export default function () {
             src='/img/logo.png'
             alt='oan logo'
           />
-        </a>
+        </Link>
         <button
           onClick={toggleMobileMenu}
           className='hamburger hamburger--slider'
@@ -42,15 +42,19 @@ export default function () {
           <div className='container'>
             <div className='row d-flex flex-column flex-lg-row align-items-center'>
               <div className='col-12 col-lg-3 d-flex justify-content-center justify-content-lg-start'>
-                <a className='logo d-none d-lg-block' href='/'>
+                <Link
+                  className='logo d-none d-lg-block cursor-pointer'
+                  href='/'
+                >
                   <Image
                     src='/img/logo.png'
                     alt=''
                     width={130}
                     height='52'
                     data-aos='fade-up'
+                    className='cursor-pointer'
                   />
-                </a>
+                </Link>
               </div>
               <div className='col-12 col-lg-9 nav--wrapper'>
                 <nav
