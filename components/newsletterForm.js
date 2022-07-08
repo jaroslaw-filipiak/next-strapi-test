@@ -119,7 +119,7 @@ const newsletterForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='d-flex flex-column flex-md-row flex-md-nowrap align-items-center justify-content-center justify-content-lg-start'>
+      <div className='newsletter-form d-flex flex-column flex-md-row flex-md-nowrap align-items-center justify-content-center justify-content-lg-start'>
         <div className='position-relative'>
           <label htmlFor='email'>
             <input
