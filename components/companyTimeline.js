@@ -64,7 +64,7 @@ const companyTimeline = () => {
           <div className='row'>
             <div className='col text-center' data-aos='fade-up'>
               <div
-                style={{ marginBottom: `90px` }}
+                style={{ marginBottom: `110px` }}
                 dangerouslySetInnerHTML={{
                   __html:
                     data.pageAbout.data.attributes.Years.secttion_title_rich,
@@ -79,12 +79,7 @@ const companyTimeline = () => {
           >
             <img
               className='indicator'
-              src='/img/section-indicator.png'
-              alt=''
-            />
-            <img
-              className='indicator-icon'
-              src='/img/icons/arrow-down.svg'
+              src='/img/section-indicator-2.png'
               alt=''
             />
           </div>

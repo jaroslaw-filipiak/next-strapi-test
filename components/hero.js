@@ -3,9 +3,23 @@ import NewsletterForm from './newsletterForm';
 import { useQuery, gql } from '@apollo/client';
 import { useRouter } from 'next/router';
 
+import { useEffect } from 'react';
+
 export default function () {
   const router = useRouter();
   const lang = router.locale.slice(0, 2);
+
+  useEffect(() => {
+    const element = document.querySelector('#lottie');
+
+    lottie.loadAnimation({
+      container: element,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: '/data.json',
+    });
+  });
 
   const GET_HERO_DATA = gql`
     query getFeatures {
@@ -22,6 +36,13 @@ export default function () {
                   }
                 }
               }
+              lottie_file {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
             }
           }
         }
@@ -30,6 +51,8 @@ export default function () {
   `;
 
   const { data, error, loading } = useQuery(GET_HERO_DATA);
+
+  console.log(data);
 
   if (loading) return <p></p>;
   if (error) return <p>error...</p>;
@@ -59,14 +82,7 @@ export default function () {
             </div>
 
             <div className='col'>
-              <Image
-                src={
-                  data.pageHomepage.data.attributes.Hero.hero_img.data
-                    .attributes.url
-                }
-                width={499}
-                height={455}
-              />
+              <div id='lottie'> </div>
             </div>
 
             <div className='flex-column align-items-center d-none d-lg-flex overflow-hidden'>

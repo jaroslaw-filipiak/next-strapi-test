@@ -58,6 +58,7 @@ export default function Home() {
   const { data, error, loading } = useQuery(GET_BOTH_CTA_DATA);
 
   if (loading) return <p></p>;
+
   if (error) return <p>error...</p>;
 
   return (
