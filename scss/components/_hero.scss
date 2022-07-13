@@ -1,0 +1,35 @@
+.home-hero {
+  h1 {
+    @include max-lg {
+      font-size: 39px;
+    }
+    @include lg {
+      max-width: 473px;
+    }
+  }
+
+  &--icon {
+    position: relative;
+    top: -13%;
+  }
+
+  &--indicator-icon {
+    margin-top: -15px;
+    width: 16px;
+  }
+
+  h3 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    padding: 50px 0px;
+    border: 3px solid blue;
+  }
+}
+
+h2 {
+  font-weight: 400;
+  margin-bottom: 45px;
+  @include lg {
+    max-width: 550px;
+  }
+}

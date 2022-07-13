@@ -1,0 +1,204 @@
+@import 'vendors/bootstrap/_bootstrap.min';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import 'vendors/hamburgers/hamburgers';
+
+@import 'utils/_mixins';
+@import 'utils/_rwd';
+
+@import 'utils/_variables';
+@import 'base/_typography';
+// @import 'vendors/aos/aos';
+
+// @import 'utils/_debug';
+
+html {
+  scroll-behavior: smooth;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+
+  p {
+    font-size: 16px;
+  }
+
+  #law-info p {
+    font-size: 10px !important;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    a {
+      color: $yellow;
+      text-decoration: none;
+    }
+  }
+}
+
+.oan-btn {
+  background-color: $yellow;
+  color: $dark;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 4px 38px;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  &:hover {
+    color: $dark;
+    opacity: 0.9;
+  }
+}
+
+.content-page {
+  padding: 60px 55px;
+  &__txt-page {
+    padding: 30px 15px;
+    @include lg {
+      padding: 60px 55px;
+    }
+  }
+}
+
+input[disabled] {
+  cursor: not-allowed;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.empty-space {
+  margin-top: 100px;
+  height: 1px;
+  padding-bottom: 30px;
+
+  @include lg {
+    margin-top: 65px;
+    height: 1px;
+    padding-bottom: 40px;
+  }
+}
+
+a.is-active {
+  color: $accent;
+}
+
+a.lang-active {
+  a {
+    color: #00a6eb !important;
+    display: inline-block;
+    position: relative;
+    margin: 0px 5px;
+    @include lg {
+      margin: 0px 15px;
+    }
+  }
+
+  &-en {
+    a {
+      position: relative;
+      @include lg {
+        &::before {
+          content: '';
+          width: 1px;
+          height: 100%;
+          background-color: #00a6eb;
+          display: block;
+          position: absolute;
+          right: 27px;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  &-pl {
+    a {
+      position: relative;
+      @include lg {
+        &::before {
+          content: '';
+          width: 1px;
+          height: 100%;
+          background-color: #00a6eb;
+          display: block;
+          position: absolute;
+          left: 23px;
+          top: 0;
+        }
+      }
+    }
+  }
+}
+
+.mw-500 {
+  max-width: 500px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.is-visible {
+  opacity: 100% !important;
+}
+
+.mh-0 {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in;
+}
+
+.mh-500 {
+  max-height: auto;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in;
+}
+
+.toast-container--wrapper {
+  position: fixed;
+  right: 20px;
+  top: 320px;
+  border: 2px dashed;
+  width: 300px;
+  height: 300px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@import './components/header';
+@import './components/hero';
+@import './components/features';
+@import './components/why-us';
+@import './components/steps';
+@import './components/testimonials';
+@import './components/logos';
+@import './components/footer';
+@import './components/cta';
+@import './components/about_us_hero';
+@import './components/company_timeline';
+@import './components/counters';
+@import './components/contact-form';
+@import './components/newsletter_form';
+@import './components/gdpr_hero';
+@import './components/icons';
+@import './components/map';
+@import './components/company-data';
+@import './components/our-group';
+@import './components/cookie-law';
+@import './components/locale-switcher';
+@import './components/preloader';

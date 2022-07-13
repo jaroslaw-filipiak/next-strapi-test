@@ -1,0 +1,70 @@
+.contact-form {
+  position: relative;
+  z-index: 2;
+  .container {
+    padding: 60px 55px;
+    margin-top: 20px;
+    background-color: #fff;
+  }
+  p {
+    margin-top: 40px;
+    position: relative;
+    &:after {
+      content: '';
+      width: 21px;
+      height: 6px;
+      background-color: $accent;
+      position: absolute;
+      left: 10px;
+      top: -20px;
+      transform: translate(-50%, 0%);
+    }
+  }
+  form {
+    @include max-lg {
+      max-width: 100%;
+    }
+    max-width: 506px;
+    label {
+      width: 100%;
+    }
+    input:not([type='submit']),
+    textarea {
+      width: 100%;
+      margin-bottom: 20px;
+      border: 1px solid $gray;
+      padding: 5px 15px;
+    }
+    input[type='submit'] {
+      @include max-lg {
+        display: inline-flex;
+      }
+      margin-top: 20px;
+    }
+    input[type='text'],
+    textarea {
+      @include lg {
+        min-width: 380px !important;
+      }
+      outline: none;
+      transition: all 0.3s ease-in;
+      text-align: left;
+      &:focus {
+        border: 1px solid $yellow;
+        outline: none;
+      }
+    }
+  }
+}
+.box-shadow {
+  @include boxShadow;
+}
+.input-errors {
+  position: absolute;
+  .error-msg {
+    position: relative;
+    font-size: 14px;
+    color: $err;
+    top: -22px;
+  }
+}
