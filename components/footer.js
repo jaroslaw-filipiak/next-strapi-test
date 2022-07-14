@@ -37,7 +37,7 @@ export default () => {
                 <Link href='/gdpr'>{lang === 'pl' ? 'RODO /' : 'GDPR /'}</Link>
                 <Link href='/advertising-privacy-policy'>
                   {lang === 'pl'
-                    ? 'Polityka prywtności usług reklamowych /'
+                    ? 'Polityka prywatności usług reklamowych /'
                     : 'Advertisment privacy policy  /'}
                 </Link>
               </div>
