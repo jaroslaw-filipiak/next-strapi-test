@@ -70,11 +70,10 @@ const map = () => {
           <div className='row d-lg-none '>
             <div className='col-12  map--infobox' data-aos='fade-up'>
               <div data-aos='fade-up' className='map--infobox-city h3'>
-                {lang === 'pl' ? 'Warszawa' : 'Warsaw'}
+                {data.pageContact.data.attributes.map_box_city}
               </div>
               <div data-aos='fade-up' className='map--infobox-address'>
-                ul. Marszałkowska 89 <br />
-                00-693 {lang === 'pl' ? 'Warszawa' : 'Warsaw'}
+                {data.pageContact.data.attributes.map_box_address}
               </div>
               <a
                 data-aos='fade-up'
