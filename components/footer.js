@@ -27,7 +27,7 @@ export default () => {
                   {lang === 'pl' ? 'O nas /' : 'About us /'}
                 </Link>
                 <Link href='/contact'>
-                  {lang === 'pl' ? 'Kontakt' : 'Contact /'}
+                  {lang === 'pl' ? 'Kontakt /' : 'Contact /'}
                 </Link>
                 <Link href='/privacy-policy'>
                   {lang === 'pl'
