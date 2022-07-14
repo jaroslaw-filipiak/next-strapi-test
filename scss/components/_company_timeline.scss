@@ -142,3 +142,9 @@
   top: 16px;
   width: 14px;
 }
+
+.container__timeline {
+  @include lg {
+    margin-top: -70px;
+  }
+}

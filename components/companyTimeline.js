@@ -78,7 +78,7 @@ const companyTimeline = () => {
             data-aos='fade-up'
           >
             <img
-              className='indicator'
+              className='indicator mb-0'
               src='/img/section-indicator-2.png'
               alt=''
             />
@@ -86,7 +86,7 @@ const companyTimeline = () => {
         </div>
       </div>
 
-      <div className='container'>
+      <div className='container container__timeline'>
         <div className='row d-flex align-items-center justify-content-center text-center'>
           <div className='pagination--active-year d-none d-lg-block'>
             {activeYear}
