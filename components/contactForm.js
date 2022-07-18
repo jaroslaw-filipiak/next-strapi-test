@@ -131,7 +131,8 @@ const contactForm = () => {
       },
     };
 
-    const endpoint = `https://hammerhead-app-mo9w2.ondigitalocean.app/api/contact`;
+    const endpoint = `http://hammerhead-app-mo9w2.ondigitalocean.app/api/contact`;
+    // const endpoint = `http://localhost:3000/api/contact`;
 
     const JSONdata = JSON.stringify(data);
 
@@ -145,6 +146,9 @@ const contactForm = () => {
 
     const response = await fetch(endpoint, options);
     const result = await response.json();
+
+    console.log(response);
+    console.log(result);
 
     // 2. clear form inputs after send
     const name = document.querySelector('#name');
