@@ -131,7 +131,7 @@ const contactForm = () => {
       },
     };
 
-    const endpoint = `${process.env.NEXT_FRONT_URL}/contact`;
+    const endpoint = `${process.env.CONTACT_POST_URL}`;
 
     const JSONdata = JSON.stringify(data);
 
