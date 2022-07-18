@@ -31,6 +31,31 @@ const newsletterForm = () => {
   if (loading) return <p></p>;
   if (error) return <p>error...</p>;
 
+  const sendPost = async (e) => {
+    e.preventDefault();
+
+    console.log('Sending');
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }).then((res) => {
+      console.log('Response received');
+      if (res.status === 200) {
+        console.log('Response succeeded!');
+        setSubmitted(true);
+        setName('11');
+        setEmail('22');
+        setBody('33');
+        setmessage('33');
+      }
+    });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -118,7 +143,7 @@ const newsletterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={sendPost}>
       <div className='newsletter-form d-flex flex-column flex-md-row flex-md-nowrap align-items-center justify-content-center justify-content-lg-start'>
         <div className='position-relative'>
           <label htmlFor='email'>
