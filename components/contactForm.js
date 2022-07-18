@@ -115,6 +115,103 @@ const contactForm = () => {
     }
   };
 
+  const handleSubmitAPI = async (event) => {
+    event.preventDefault();
+
+    // 1. send mail
+    const data = {
+      data: {
+        name: event.target.name.value,
+        email: event.target.email.value,
+        message: event.target.message.value,
+        subject:
+          lang === 'pl'
+            ? 'Wiadomość z formularza kontaktowego'
+            : 'Message from contact form ',
+      },
+    };
+
+    const endpoint = `${process.env.NEXT_FRONT_URL}/contact`;
+
+    const JSONdata = JSON.stringify(data);
+
+    const options = {
+      method: 'POST',
+      body: JSONdata,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const response = await fetch(endpoint, options);
+    const result = await response.json();
+
+    // 2. clear form inputs after send
+    const name = document.querySelector('#name');
+    const email = document.querySelector('#email');
+    const message = document.querySelector('#message');
+
+    // 3 show toast
+
+    if (lang === 'pl') {
+      if (response.status === 200) {
+        toast.success('Wiadomość została wysłana!', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        name.value = '';
+        email.value = '';
+        message.value = '';
+      } else {
+        toast.warning('Upsss. spróbuj ponownie za jakiś czas..', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    }
+
+    if (lang === 'en') {
+      if (response.status === 200) {
+        toast.success('Your message was send, thanks!', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
+        name.value = '';
+        email.value = '';
+        message.value = '';
+      } else {
+        toast.warning('Upsss. try again after 3 minutes', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    }
+
+    // 4 save in strapi admin panel
+  };
+
   return (
     <section className='contact-form' data-aos='fade-up'>
       <div className='container-fluid'>
@@ -147,7 +244,7 @@ const contactForm = () => {
               className='col col-lg-7 d-flex justify-content-end'
               data-aos='fade-up'
             >
-              <form onSubmit={handleSubmit} data-aos='fade-up'>
+              <form onSubmit={handleSubmitAPI} data-aos='fade-up'>
                 <label htmlFor='name'>
                   <input
                     type='text'
