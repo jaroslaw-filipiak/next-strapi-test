@@ -118,7 +118,7 @@ const contactForm = () => {
   const handleSubmitAPI = async (event) => {
     event.preventDefault();
 
-    // 1. send mail11
+    // 1. send mail1
     const data = {
       data: {
         name: event.target.name.value,

@@ -9,17 +9,17 @@ export default function (req, res) {
     const message = req.body.data.message;
 
     const mailData = {
-      from: 'jarekfilipiak@live.com',
-      to: 'info@j-filipiak.pl',
+      from: '',
+      to: '',
       subject: subject,
       text: message,
     };
 
     const transporter = nodemailer.createTransport({
-      service: 'hotmail',
+      service: '',
       auth: {
-        user: 'jarekfilipiak@live.com',
-        pass: 'Unikajmaczety1',
+        user: '',
+        pass: '',
       },
     });
 
@@ -27,21 +27,23 @@ export default function (req, res) {
     //   port: 587,
     //   host: 'smtp-relay.sendinblue.com',
     //   auth: {
-    //     user: 'info@j-filipiak.pl',
-    //     pass: 'Xibalba123',
+    //     user: '',
+    //     pass: '',
     //   },
     //   secure: false,
     // });
 
     transporter.sendMail(mailData, function (err, info) {
       if (err) console.log(err);
-      else console.log(info);
+      else {
+        console.log(info);
+      }
     });
 
-    res.status(200).json({ message: 'ok' });
+    res.status(200).json({ status: 'ok' });
 
     //  process data - send mail
   } else {
-    res.status(500).json({ message: 'Only POST method for /api/contact ;/' });
+    res.status(500).json({ message: 'Only POST method are allowed' });
   }
 }
