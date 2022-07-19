@@ -40,6 +40,11 @@ export default () => {
                     ? 'Polityka prywatności usług reklamowych /'
                     : 'Advertisment privacy policy  /'}
                 </Link>
+                <Link href='/do-not-sell-my-personal-info'>
+                  {lang === 'pl'
+                    ? 'Nie sprzedawaj moich danych osobistych /'
+                    : 'Do not sell my Personal info /'}
+                </Link>
               </div>
 
               <div className='d-flex justify-content-center pt-3 footer-col footer-col-3 ps-1 pe-1'>
